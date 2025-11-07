@@ -49,15 +49,13 @@
 /* Bottom Navigation Footer */
 .bottom-nav {
     height: 70px;
-    background: rgba(0,0,0,0.95);
-    backdrop-filter: blur(20px);
+    background: transparent;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 0 10px;
     position: relative;
     z-index: 1000;
-    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .nav-btn {
@@ -78,35 +76,31 @@
 }
 
 .nav-btn:hover {
-    background: rgba(255,255,255,0.1);
     transform: translateY(-2px);
 }
 
 .nav-btn.active {
-    background: rgba(102, 126, 234, 0.2);
-}
-
-.nav-btn.active::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    border-radius: 0 0 3px 3px;
+    background: none;
 }
 
 .nav-btn svg {
     display: block;
-    opacity: 0.8;
+    opacity: 0.6;
     transition: all 0.3s;
+}
+
+.nav-btn:hover svg {
+    opacity: 0.8;
 }
 
 .nav-btn.active svg {
     opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.6));
+    filter: drop-shadow(0 0 12px rgba(102, 126, 234, 1))
+            drop-shadow(0 0 20px rgba(102, 126, 234, 0.8));
+}
+
+.nav-btn.active svg path {
+    fill: #667eea;
 }
 
 .nav-label {
