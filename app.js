@@ -309,10 +309,7 @@ async function loadData() {
         
         // Load Flash News
         await loadFlashNews();
-        
-        // Load Member Messages
-        await loadMemberMessages();
-        
+
         // Load Locations
         await loadLocations();
         
@@ -410,11 +407,6 @@ function openApp(appId) {
         if (settingsIcon) settingsIcon.classList.add('active');
     } else if (appId === 'membres' || appId === 'characterDetail') {
         if (membresIcon) membresIcon.classList.add('active');
-    } else if (appId === 'messages') {
-        // Render messages when opening the page
-        if (typeof renderMemberMessages === 'function') {
-            renderMemberMessages();
-        }
     }
     
     // Update floating buttons state
@@ -1158,71 +1150,6 @@ function stopMessageAudio(index) {
 window.toggleAccordion = toggleAccordion;
 window.toggleMessageAudio = toggleMessageAudio;
 window.stopMessageAudio = stopMessageAudio;
-
-// ===== MESSAGES FROM MEMBERS =====
-
-let messagesData = null;
-
-async function loadMemberMessages() {
-    try {
-        const response = await fetch('data/messages.json');
-        messagesData = await response.json();
-        updateMessagesBadge();
-    } catch (error) {
-        console.error('Error loading messages:', error);
-    }
-}
-
-function renderMemberMessages() {
-    if (!messagesData) return;
-    
-    const container = document.getElementById('messagesContent');
-    const unreadCount = messagesData.notifications.filter(m => !m.read).length;
-    
-    container.innerHTML = `
-        <div class="messages-header-section">
-            <h3 class="messages-section-title">📬 Messages</h3>
-            <div class="unread-badge">${unreadCount} non lus</div>
-        </div>
-        
-        <div class="messages-list">
-            ${messagesData.notifications.map(msg => `
-                <div class="message-item ${!msg.read ? 'unread' : ''}" onclick="openMemberChat(${msg.fromId}, ${msg.id})">
-                    <div class="message-avatar">${msg.avatar}</div>
-                    <div class="message-content">
-                        <div class="message-from">${msg.from}</div>
-                        <div class="message-text">${msg.message}</div>
-                        <div class="message-time">${msg.timestamp}</div>
-                    </div>
-                    ${!msg.read ? '<div class="unread-dot"></div>' : ''}
-                </div>
-            `).join('')}
-        </div>
-    `;
-}
-
-function updateMessagesBadge() {
-    const badge = document.querySelector('.notification-badge');
-    if (badge && messagesData) {
-        const unreadCount = messagesData.notifications.filter(m => !m.read).length;
-        badge.textContent = unreadCount;
-        badge.style.display = unreadCount > 0 ? 'flex' : 'none';
-    }
-}
-
-function openMemberChat(memberId, messageId) {
-    // Mark message as read
-    const message = messagesData.notifications.find(m => m.id === messageId);
-    if (message) {
-        message.read = true;
-        updateMessagesBadge();
-    }
-    
-    // Open chat with member
-    openChat(memberId);
-}
-
-window.openMemberChat = openMemberChat;
 
 // ===== LIEUX SYSTEM =====
 
