@@ -1,0 +1,142 @@
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .smartphone-frame {
+        max-width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100vh;
+        max-height: 100dvh;
+        border-radius: 0;
+        border: none;
+    }
+
+    .status-bar {
+        padding-top: env(safe-area-inset-top);
+    }
+
+    .screen-content {
+        height: calc(100% - 40px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    }
+
+    .floating-lieux-btn,
+    .floating-projets-btn {
+        bottom: calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .home-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .characters-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .project-categories,
+    .nexus-grid,
+    .lieux-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .chat-message {
+        max-width: 85%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .smartphone-frame {
+        max-width: 500px;
+    }
+
+    .home-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .smartphone-frame {
+        max-width: 420px;
+    }
+
+    /* Hover effects plus visibles */
+    .character-card:hover,
+    .category-card:hover,
+    .nexus-card:hover,
+    .lieu-card:hover {
+        transform: translateY(-8px);
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+    .status-bar {
+        padding: 0 10px;
+        font-size: 11px;
+    }
+
+    .status-left,
+    .status-right {
+        gap: 5px;
+    }
+
+    #currentTime {
+        font-size: 11px;
+    }
+
+    #currentDate {
+        font-size: 8px;
+    }
+
+    .app-content {
+        padding: 15px;
+    }
+
+    .characters-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .smartphone-frame {
+        height: 100vh;
+        max-height: none;
+    }
+
+    .app-content {
+        padding: 10px 15px;
+    }
+
+    .floating-lieux-btn,
+    .floating-projets-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* High DPI / Retina */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .smartphone-frame {
+        border-width: 2px;
+    }
+
+    .back-btn,
+    .settings-icon,
+    .home-icon,
+    .membres-icon,
+    .calendar-icon {
+        border-width: 1px;
+    }
+}
