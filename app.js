@@ -24,7 +24,7 @@ const backgroundVideo = document.getElementById('backgroundVideo');
 
 // Initialize App
 window.addEventListener('DOMContentLoaded', () => {
-    initializeTime();
+    // initializeTime(); // Removed - no longer displaying time/date in header
     checkLockedWallpaper(); // Check if wallpaper is locked
     loadData(); // Load data directly, skip prologue
     initializeMusicPlayer();
