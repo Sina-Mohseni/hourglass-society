@@ -2138,9 +2138,30 @@ function selectEra(era) {
         }
     });
 
+    // Check if active item still exists in new era
+    const itemExistsInNewEra = checkIfActiveItemExistsInEra();
+
     // Refresh content in other pages
     renderCharactersGallery();
     renderSagas();
+
+    // If active item doesn't exist in new era, reset selection
+    if (!itemExistsInNewEra) {
+        activeItemType = null;
+        activeItemId = null;
+        updateHeaderButtons();
+    }
+}
+
+function checkIfActiveItemExistsInEra() {
+    if (!activeItemType || !activeItemId) return false;
+
+    if (activeItemType === 'element') {
+        return characters.some(c => c.id === activeItemId && c.era === activeEra);
+    } else if (activeItemType === 'saga') {
+        return sagas.some(s => s.id === activeItemId && s.era === activeEra);
+    }
+    return false;
 }
 
 // Initialize era state on page load
@@ -2284,6 +2305,14 @@ function renderCharactersGallery() {
             </div>
         `).join('') +
     '</div>';
+
+    // Reapply active state if an element was selected
+    if (activeItemType === 'element' && activeItemId) {
+        const selectedCard = document.querySelector(`.character-card[data-id="${activeItemId}"]`);
+        if (selectedCard) {
+            selectedCard.classList.add('active-item');
+        }
+    }
 }
 
 // Load Sagas
@@ -2326,6 +2355,14 @@ function renderSagas() {
             </div>
         `).join('') +
     '</div>';
+
+    // Reapply active state if a saga was selected
+    if (activeItemType === 'saga' && activeItemId) {
+        const selectedCard = document.querySelector(`.saga-card[data-id="${activeItemId}"]`);
+        if (selectedCard) {
+            selectedCard.classList.add('active-item');
+        }
+    }
 }
 
 // Open Character Detail
