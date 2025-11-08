@@ -35,7 +35,7 @@
     }
 
     .app-header {
-        bottom: calc(85px + env(safe-area-inset-bottom));
+        bottom: calc(75px + env(safe-area-inset-bottom));
     }
 
     .nav-label {
@@ -137,7 +137,7 @@
     }
 
     .app-header {
-        bottom: 75px;
+        bottom: 65px;
     }
 }
 
