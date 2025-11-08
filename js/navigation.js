@@ -42,10 +42,12 @@ function updateIconStates(appId) {
     // Remove all active states from footer icons
     const worldIcon = document.getElementById('worldIcon');
     const calendarIcon = document.getElementById('calendarIcon');
+    const sagasIcon = document.getElementById('sagasIcon');
     const membresIcon = document.getElementById('membresIcon');
 
     if (worldIcon) worldIcon.classList.remove('active');
     if (calendarIcon) calendarIcon.classList.remove('active');
+    if (sagasIcon) sagasIcon.classList.remove('active');
     if (membresIcon) membresIcon.classList.remove('active');
 
     // Set active based on current app
@@ -53,6 +55,8 @@ function updateIconStates(appId) {
         if (worldIcon) worldIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.CALENDRIER) {
         if (calendarIcon) calendarIcon.classList.add('active');
+    } else if (appId === CONFIG.APPS.SAGAS) {
+        if (sagasIcon) sagasIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.MEMBRES || appId === CONFIG.APPS.CHARACTER_DETAIL) {
         if (membresIcon) membresIcon.classList.add('active');
     }
