@@ -139,11 +139,6 @@
     font-weight: 600;
 }
 
-/* Chronologie icon horizontal */
-.chronologie-icon svg {
-    transform: rotate(90deg);
-}
-
 /* Screen Content */
 .screen-content {
     height: calc(100% - 140px);
@@ -224,8 +219,9 @@
     transform: translateX(-50%) scale(1.1);
 }
 
-/* Top Floating Buttons (Home & Settings) */
-.floating-home-btn,
+/* Top Floating Buttons (Monde, Chronologie & Settings) */
+.floating-monde-btn,
+.floating-chronologie-btn,
 .floating-settings-btn {
     position: absolute;
     top: 15px;
@@ -242,23 +238,34 @@
     opacity: 0.7;
 }
 
-.floating-home-btn {
+.floating-monde-btn {
     left: 20px;
+}
+
+.floating-chronologie-btn {
+    left: 70px;
 }
 
 .floating-settings-btn {
     right: 20px;
 }
 
-.floating-home-btn:hover,
+.floating-monde-btn:hover,
+.floating-chronologie-btn:hover,
 .floating-settings-btn:hover {
     opacity: 1;
     transform: scale(1.1);
 }
 
-.floating-home-btn svg,
+.floating-monde-btn svg,
+.floating-chronologie-btn svg,
 .floating-settings-btn svg {
     width: 24px;
     height: 24px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Chronologie icon horizontal in header */
+.floating-chronologie-btn svg {
+    transform: rotate(90deg);
 }

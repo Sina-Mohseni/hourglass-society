@@ -400,24 +400,16 @@ function openApp(appId) {
     // Update page title
     updatePageTitle(appId);
 
-    // Update icon states
-    const worldIcon = document.getElementById('worldIcon');
-    const chronologieIcon = document.getElementById('chronologieIcon');
+    // Update icon states (footer icons only)
     const sagasIcon = document.getElementById('sagasIcon');
     const elementsIcon = document.getElementById('elementsIcon');
 
     // Remove all active states
-    if (worldIcon) worldIcon.classList.remove('active');
-    if (chronologieIcon) chronologieIcon.classList.remove('active');
     if (sagasIcon) sagasIcon.classList.remove('active');
     if (elementsIcon) elementsIcon.classList.remove('active');
 
     // Set active based on current app
-    if (appId === 'carte') {
-        if (worldIcon) worldIcon.classList.add('active');
-    } else if (appId === 'calendrier') {
-        if (chronologieIcon) chronologieIcon.classList.add('active');
-    } else if (appId === 'sagas') {
+    if (appId === 'sagas') {
         if (sagasIcon) sagasIcon.classList.add('active');
     } else if (appId === 'membres' || appId === 'characterDetail') {
         if (elementsIcon) elementsIcon.classList.add('active');
