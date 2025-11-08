@@ -59,7 +59,7 @@
 }
 
 .nav-btn {
-    background: none;
+    background: none !important;
     border: none;
     cursor: pointer;
     padding: 8px 12px;
@@ -68,7 +68,6 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    border-radius: 12px;
     transition: all 0.3s;
     position: relative;
     flex: 1;
@@ -77,10 +76,6 @@
 
 .nav-btn:hover {
     transform: translateY(-2px);
-}
-
-.nav-btn.active {
-    background: none;
 }
 
 .nav-btn svg {
@@ -162,7 +157,7 @@
 .floating-lieux-btn,
 .floating-projets-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 150px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -178,7 +173,7 @@
 }
 
 .floating-lieux-btn {
-    right: 90px;
+    left: 20px;
 }
 
 .floating-projets-btn {
