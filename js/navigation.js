@@ -18,6 +18,9 @@ export function openApp(appId) {
         state.currentApp = appId;
     }
 
+    // Update page title in header
+    updatePageTitle(appId);
+
     // Update icon states
     updateIconStates(appId);
 
@@ -33,6 +36,29 @@ export function openApp(appId) {
  */
 export function closeApp() {
     openApp(CONFIG.APPS.HOME);
+}
+
+/**
+ * Update page title in header
+ */
+function updatePageTitle(appId) {
+    const titleElement = document.getElementById('pageTitle');
+    if (!titleElement) return;
+
+    const titles = {
+        [CONFIG.APPS.HOME]: 'EA Mobile',
+        [CONFIG.APPS.CARTE]: 'MONDE',
+        [CONFIG.APPS.CALENDRIER]: 'CHRONOLOGIE',
+        [CONFIG.APPS.SAGAS]: 'SAGAS',
+        [CONFIG.APPS.MEMBRES]: 'ELEMENTS',
+        [CONFIG.APPS.CHARACTER_DETAIL]: 'ELEMENTS',
+        [CONFIG.APPS.PARAMETRES]: 'Paramètres',
+        [CONFIG.APPS.LIEUX]: 'Lieux',
+        [CONFIG.APPS.EA_NEXUS]: 'Mes Projets',
+        [CONFIG.APPS.FLASH]: 'Flash'
+    };
+
+    titleElement.textContent = titles[appId] || '';
 }
 
 /**
