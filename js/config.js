@@ -27,7 +27,8 @@ export const CONFIG = {
         LOCATION_DETAIL: 'locationDetail',
         FLASH: 'flash',
         CARTE: 'carte',
-        SAGAS: 'sagas'
+        SAGAS: 'sagas',
+        CROSSLINE: 'crossline'
     },
 
     // LocalStorage Keys

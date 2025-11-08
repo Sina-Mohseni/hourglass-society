@@ -181,8 +181,9 @@
 }
 
 /* Floating Buttons */
-.floating-lieux-btn,
-.floating-projets-btn {
+.floating-itemline-btn,
+.floating-crossline-btn,
+.floating-timeline-btn {
     position: absolute;
     bottom: 85px;
     width: 60px;
@@ -199,18 +200,28 @@
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
 }
 
-.floating-lieux-btn {
+.floating-itemline-btn {
     left: 20px;
 }
 
-.floating-projets-btn {
+.floating-crossline-btn {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.floating-timeline-btn {
     right: 20px;
 }
 
-.floating-lieux-btn:hover,
-.floating-projets-btn:hover {
+.floating-itemline-btn:hover,
+.floating-crossline-btn:hover,
+.floating-timeline-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.7);
+}
+
+.floating-crossline-btn:hover {
+    transform: translateX(-50%) scale(1.1);
 }
 
 /* Top Floating Buttons (Home & Settings) */

@@ -373,9 +373,10 @@ function updatePageTitle(appId) {
         'membres': 'ELEMENTS',
         'characterDetail': 'ELEMENTS',
         'parametres': 'Paramètres',
-        'lieux': 'Lieux',
-        'eaNexus': 'Mes Projets',
-        'flash': 'Flash'
+        'lieux': 'ITEMLINE',
+        'eaNexus': 'TIMELINE',
+        'flash': 'Flash',
+        'crossline': 'CROSSLINE'
     };
 
     titleElement.textContent = titles[appId] || '';

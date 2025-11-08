@@ -53,9 +53,10 @@ function updatePageTitle(appId) {
         [CONFIG.APPS.MEMBRES]: 'ELEMENTS',
         [CONFIG.APPS.CHARACTER_DETAIL]: 'ELEMENTS',
         [CONFIG.APPS.PARAMETRES]: 'Paramètres',
-        [CONFIG.APPS.LIEUX]: 'Lieux',
-        [CONFIG.APPS.EA_NEXUS]: 'Mes Projets',
-        [CONFIG.APPS.FLASH]: 'Flash'
+        [CONFIG.APPS.LIEUX]: 'ITEMLINE',
+        [CONFIG.APPS.EA_NEXUS]: 'TIMELINE',
+        [CONFIG.APPS.FLASH]: 'Flash',
+        [CONFIG.APPS.CROSSLINE]: 'CROSSLINE'
     };
 
     titleElement.textContent = titles[appId] || '';
