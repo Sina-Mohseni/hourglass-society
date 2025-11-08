@@ -366,7 +366,7 @@ function updatePageTitle(appId) {
     if (!titleElement) return;
 
     const titles = {
-        'home': 'MONDE',
+        'home': 'EA Mobile',
         'carte': 'MONDE',
         'calendrier': 'CALENDRIER',
         'sagas': 'SAGAS',
