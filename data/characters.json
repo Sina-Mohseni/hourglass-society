@@ -31,7 +31,8 @@
     ],
     "quote": "La magie n'est que science que nous ne comprenons pas encore.",
     "availability": "En ligne",
-    "location": "Tour d'Alchimie, Zone Créative"
+    "location": "Tour d'Alchimie, Zone Créative",
+    "era": "alpha"
   },
   {
     "id": 2,
@@ -65,6 +66,7 @@
     ],
     "quote": "Dans le cyberespace, je ne suis pas seulement un utilisateur. Je suis l'architecte.",
     "availability": "En mission",
-    "location": "Hub Technologique, Niveau -7"
+    "location": "Hub Technologique, Niveau -7",
+    "era": "alpha"
   }
 ]

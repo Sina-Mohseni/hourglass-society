@@ -31,7 +31,8 @@ window.addEventListener('DOMContentLoaded', () => {
     initializeTextColorPicker();
     initializeSettingsSeekBar();
     initializeSettingsVolumeBar();
-    
+    initializeEra(); // Initialize era state
+
     // Render settings components after data is loaded
     setTimeout(() => {
         renderWallpaperSettings();
@@ -479,6 +480,7 @@ function updateFloatingButtons(appId) {
 
 window.openApp = openApp;
 window.closeApp = closeApp;
+window.selectEra = selectEra;
 
 // Calendar
 function initializeCalendar() {
@@ -2113,6 +2115,35 @@ function initializeSettingsVolumeBar() {
     });
 }
 
+// Era Management
+let activeEra = localStorage.getItem('activeEra') || 'alpha';
+
+function selectEra(era) {
+    activeEra = era;
+    localStorage.setItem('activeEra', era);
+
+    // Update visual state in chronologie page
+    const slides = document.querySelectorAll('.timeline-slide');
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        if (slide.dataset.era === era) {
+            slide.classList.add('active');
+        }
+    });
+
+    // Refresh content in other pages
+    renderCharactersGallery();
+    // renderSagas(); // Will be added when SAGAS content is implemented
+}
+
+// Initialize era state on page load
+function initializeEra() {
+    const activeSlide = document.querySelector(`.timeline-slide[data-era="${activeEra}"]`);
+    if (activeSlide) {
+        activeSlide.classList.add('active');
+    }
+}
+
 // Load Characters
 async function loadCharacters() {
     try {
@@ -2127,8 +2158,17 @@ async function loadCharacters() {
 // Render Characters Gallery
 function renderCharactersGallery() {
     const container = document.getElementById('charactersGallery');
+
+    // Filter characters by active era
+    const filteredCharacters = characters.filter(c => c.era === activeEra);
+
+    if (filteredCharacters.length === 0) {
+        container.innerHTML = '<div class="no-content"><p style="color: white; text-align: center; margin-top: 50px;">Aucun élément dans cette ère...</p></div>';
+        return;
+    }
+
     container.innerHTML = '<div class="characters-grid">' +
-        characters.map(character => `
+        filteredCharacters.map(character => `
             <div class="character-card" onclick="openCharacterDetail(${character.id})">
                 <div class="character-avatar" style="background: ${character.background}">
                     ${character.avatar}

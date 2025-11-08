@@ -338,6 +338,22 @@
     justify-content: center;
     padding: 40px 20px;
     min-height: 100%;
+    cursor: pointer;
+}
+
+.timeline-era-frame {
+    width: 90%;
+    max-width: 350px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.timeline-slide.active .timeline-era-frame {
+    background: rgba(102, 126, 234, 0.15);
+    border: 2px solid rgba(102, 126, 234, 0.6);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.4),
+                inset 0 0 20px rgba(102, 126, 234, 0.1);
 }
 
 .timeline-era-title {
