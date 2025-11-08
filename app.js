@@ -13,6 +13,7 @@ let currentWallpaper = 0;
 let events = [];
 let characters = [];
 let sagas = [];
+let eras = [];
 let prologueData = null;
 let currentQuestion = 0;
 let selectedAnswers = [];
@@ -311,6 +312,10 @@ async function loadData() {
 
         // Load Sagas
         await loadSagas();
+
+        // Load Eras
+        const erasResponse = await fetch('data/eras.json');
+        eras = await erasResponse.json();
 
         // Load Flash News
         await loadFlashNews();
@@ -2145,11 +2150,17 @@ function selectEra(era) {
     renderCharactersGallery();
     renderSagas();
 
-    // If active item doesn't exist in new era, reset selection
+    // If active item doesn't exist in new era OR no item is active, change background to era
     if (!itemExistsInNewEra) {
         activeItemType = null;
         activeItemId = null;
         updateHeaderButtons();
+
+        // Change background to era's video when item becomes inactive
+        changeBackgroundToEra(era);
+    } else if (!activeItemType || !activeItemId) {
+        // No item active, show era background
+        changeBackgroundToEra(era);
     }
 }
 
@@ -2164,11 +2175,33 @@ function checkIfActiveItemExistsInEra() {
     return false;
 }
 
+// Change background to era's video
+function changeBackgroundToEra(eraId) {
+    const era = eras.find(e => e.id === eraId);
+    if (era && era.videoWallpaper) {
+        const video = document.getElementById('backgroundVideo');
+        const bgImage = document.getElementById('backgroundImage');
+
+        bgImage.style.display = 'none';
+        video.style.display = 'block';
+        video.src = era.videoWallpaper;
+        video.load();
+        video.play();
+    }
+}
+
 // Initialize era state on page load
 function initializeEra() {
     const activeSlide = document.querySelector(`.timeline-slide[data-era="${activeEra}"]`);
     if (activeSlide) {
         activeSlide.classList.add('active');
+    }
+
+    // Set era background if no item is active
+    if (!activeItemType || !activeItemId) {
+        setTimeout(() => {
+            changeBackgroundToEra(activeEra);
+        }, 500); // Wait for eras data to load
     }
 }
 
