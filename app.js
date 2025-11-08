@@ -360,6 +360,27 @@ function finishLoading() {
     openApp('home');
 }
 
+// Update page title in header
+function updatePageTitle(appId) {
+    const titleElement = document.getElementById('pageTitle');
+    if (!titleElement) return;
+
+    const titles = {
+        'home': 'EA Mobile',
+        'carte': 'MONDE',
+        'calendrier': 'CHRONOLOGIE',
+        'sagas': 'SAGAS',
+        'membres': 'ELEMENTS',
+        'characterDetail': 'ELEMENTS',
+        'parametres': 'Paramètres',
+        'lieux': 'Lieux',
+        'eaNexus': 'Mes Projets',
+        'flash': 'Flash'
+    };
+
+    titleElement.textContent = titles[appId] || '';
+}
+
 // App Navigation
 function openApp(appId) {
     // Close current app
@@ -374,28 +395,31 @@ function openApp(appId) {
         newWindow.classList.add('active');
         currentApp = appId;
     }
-    
+
+    // Update page title
+    updatePageTitle(appId);
+
     // Update icon states
-    const homeIcon = document.getElementById('homeIcon');
-    const calendarIcon = document.getElementById('calendarIcon');
-    const settingsIcon = document.getElementById('settingsIcon');
-    const membresIcon = document.getElementById('membresIcon');
+    const worldIcon = document.getElementById('worldIcon');
+    const chronologieIcon = document.getElementById('chronologieIcon');
+    const sagasIcon = document.getElementById('sagasIcon');
+    const elementsIcon = document.getElementById('elementsIcon');
 
     // Remove all active states
-    if (homeIcon) homeIcon.classList.remove('active');
-    if (calendarIcon) calendarIcon.classList.remove('active');
-    if (settingsIcon) settingsIcon.classList.remove('active');
-    if (membresIcon) membresIcon.classList.remove('active');
-    
+    if (worldIcon) worldIcon.classList.remove('active');
+    if (chronologieIcon) chronologieIcon.classList.remove('active');
+    if (sagasIcon) sagasIcon.classList.remove('active');
+    if (elementsIcon) elementsIcon.classList.remove('active');
+
     // Set active based on current app
-    if (appId === 'home') {
-        if (homeIcon) homeIcon.classList.add('active');
+    if (appId === 'carte') {
+        if (worldIcon) worldIcon.classList.add('active');
     } else if (appId === 'calendrier') {
-        if (calendarIcon) calendarIcon.classList.add('active');
-    } else if (appId === 'parametres') {
-        if (settingsIcon) settingsIcon.classList.add('active');
+        if (chronologieIcon) chronologieIcon.classList.add('active');
+    } else if (appId === 'sagas') {
+        if (sagasIcon) sagasIcon.classList.add('active');
     } else if (appId === 'membres' || appId === 'characterDetail') {
-        if (membresIcon) membresIcon.classList.add('active');
+        if (elementsIcon) elementsIcon.classList.add('active');
     }
     
     // Update floating buttons state
