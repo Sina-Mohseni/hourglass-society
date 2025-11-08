@@ -219,10 +219,9 @@
     transform: translateX(-50%) scale(1.1);
 }
 
-/* Top Floating Buttons (Monde, Chronologie, Calendrier & Settings) */
+/* Top Floating Buttons (Monde, Chronologie & Settings) */
 .floating-monde-btn,
 .floating-chronologie-btn,
-.floating-calendrier-btn,
 .floating-settings-btn {
     position: absolute;
     top: 15px;
@@ -247,17 +246,12 @@
     left: 70px;
 }
 
-.floating-calendrier-btn {
-    right: 70px;
-}
-
 .floating-settings-btn {
     right: 20px;
 }
 
 .floating-monde-btn:hover,
 .floating-chronologie-btn:hover,
-.floating-calendrier-btn:hover,
 .floating-settings-btn:hover {
     opacity: 1;
     transform: scale(1.1);
@@ -265,7 +259,6 @@
 
 .floating-monde-btn svg,
 .floating-chronologie-btn svg,
-.floating-calendrier-btn svg,
 .floating-settings-btn svg {
     width: 24px;
     height: 24px;
