@@ -219,8 +219,8 @@
     transform: translateX(-50%) scale(1.1);
 }
 
-/* Top Floating Buttons (Monde, Chronologie & Settings) */
-.floating-monde-btn,
+/* Top Floating Buttons (Home, Chronologie, Calendrier & Settings) */
+.floating-home-btn,
 .floating-chronologie-btn,
 .floating-calendrier-btn,
 .floating-settings-btn {
@@ -239,7 +239,7 @@
     opacity: 0.7;
 }
 
-.floating-monde-btn {
+.floating-home-btn {
     left: 20px;
 }
 
@@ -255,7 +255,7 @@
     right: 20px;
 }
 
-.floating-monde-btn:hover,
+.floating-home-btn:hover,
 .floating-chronologie-btn:hover,
 .floating-calendrier-btn:hover,
 .floating-settings-btn:hover {
@@ -263,7 +263,7 @@
     transform: scale(1.1);
 }
 
-.floating-monde-btn svg,
+.floating-home-btn svg,
 .floating-chronologie-btn svg,
 .floating-calendrier-btn svg,
 .floating-settings-btn svg {
