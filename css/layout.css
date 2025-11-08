@@ -308,3 +308,56 @@
 .floating-settings-btn.active svg path {
     fill: #667eea;
 }
+
+/* Chronologie Timeline Slider */
+.chronologie-content {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.timeline-slider {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    height: 100%;
+}
+
+.timeline-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 100%;
+}
+
+.timeline-era-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+    letter-spacing: 3px;
+}
+
+.timeline-era-content {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.timeline-era-content p {
+    margin: 0;
+    opacity: 0.9;
+}
