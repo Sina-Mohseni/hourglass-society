@@ -375,6 +375,7 @@ function updatePageTitle(appId) {
         'carte': 'MONDE',
         'chronologie': 'CHRONOLOGIE',
         'calendrier': 'CALENDRIER',
+        'sommaire': 'SOMMAIRE',
         'sagas': 'SAGAS',
         'membres': 'ELEMENTS',
         'characterDetail': 'ELEMENTS',
@@ -485,6 +486,8 @@ function updateFloatingButtons(appId) {
 window.openApp = openApp;
 window.closeApp = closeApp;
 window.selectEra = selectEra;
+window.selectElement = selectElement;
+window.selectSaga = selectSaga;
 
 // Calendar
 function initializeCalendar() {
@@ -2148,6 +2151,105 @@ function initializeEra() {
     }
 }
 
+// Active Element/Saga Management
+let activeItemType = null; // 'element' or 'saga'
+let activeItemId = null;
+
+function selectElement(elementId) {
+    activeItemType = 'element';
+    activeItemId = elementId;
+
+    // Update visual state for characters
+    document.querySelectorAll('.character-card').forEach(card => {
+        card.classList.remove('active-item');
+    });
+    const selectedCard = document.querySelector(`.character-card[data-id="${elementId}"]`);
+    if (selectedCard) {
+        selectedCard.classList.add('active-item');
+    }
+
+    // Remove active state from sagas
+    document.querySelectorAll('.saga-card').forEach(card => {
+        card.classList.remove('active-item');
+    });
+
+    // Show calendrier button, hide sommaire button
+    updateHeaderButtons();
+}
+
+function selectSaga(sagaId) {
+    activeItemType = 'saga';
+    activeItemId = sagaId;
+
+    // Update visual state for sagas
+    document.querySelectorAll('.saga-card').forEach(card => {
+        card.classList.remove('active-item');
+    });
+    const selectedCard = document.querySelector(`.saga-card[data-id="${sagaId}"]`);
+    if (selectedCard) {
+        selectedCard.classList.add('active-item');
+    }
+
+    // Remove active state from characters
+    document.querySelectorAll('.character-card').forEach(card => {
+        card.classList.remove('active-item');
+    });
+
+    // Show sommaire button, hide calendrier button
+    updateHeaderButtons();
+
+    // Load saga sommaire
+    loadSagaSommaire(sagaId);
+}
+
+function updateHeaderButtons() {
+    const calendrierBtn = document.querySelector('.floating-calendrier-btn');
+    const sommaireBtn = document.querySelector('.floating-sommaire-btn');
+
+    if (activeItemType === 'element') {
+        calendrierBtn.style.display = 'flex';
+        sommaireBtn.style.display = 'none';
+    } else if (activeItemType === 'saga') {
+        calendrierBtn.style.display = 'none';
+        sommaireBtn.style.display = 'flex';
+    } else {
+        calendrierBtn.style.display = 'none';
+        sommaireBtn.style.display = 'none';
+    }
+}
+
+function loadSagaSommaire(sagaId) {
+    const saga = sagas.find(s => s.id === sagaId);
+    if (!saga) return;
+
+    const container = document.getElementById('sommaireContent');
+    const titleElement = document.getElementById('sommaireTitle');
+
+    titleElement.textContent = saga.title;
+
+    // Generate chapters (for now, placeholder chapters based on episodes)
+    const chapters = [];
+    for (let i = 1; i <= saga.episodes; i++) {
+        chapters.push({
+            number: i,
+            title: `Chapitre ${i}`,
+            status: i <= saga.completedEpisodes ? 'completed' : 'locked'
+        });
+    }
+
+    container.innerHTML = '<div class="sommaire-list">' +
+        chapters.map(chapter => `
+            <div class="chapter-item ${chapter.status}">
+                <div class="chapter-number">${chapter.number}</div>
+                <div class="chapter-info">
+                    <div class="chapter-title">${chapter.title}</div>
+                    <div class="chapter-status">${chapter.status === 'completed' ? '✓ Complété' : '🔒 Verrouillé'}</div>
+                </div>
+            </div>
+        `).join('') +
+    '</div>';
+}
+
 // Load Characters
 async function loadCharacters() {
     try {
@@ -2173,7 +2275,7 @@ function renderCharactersGallery() {
 
     container.innerHTML = '<div class="characters-grid">' +
         filteredCharacters.map(character => `
-            <div class="character-card" onclick="openCharacterDetail(${character.id})">
+            <div class="character-card" data-id="${character.id}" onclick="selectElement(${character.id})">
                 <div class="character-avatar" style="background: ${character.background}">
                     ${character.avatar}
                 </div>
@@ -2209,7 +2311,7 @@ function renderSagas() {
 
     container.innerHTML = '<div class="sagas-grid">' +
         filteredSagas.map(saga => `
-            <div class="saga-card" style="background: ${saga.background}">
+            <div class="saga-card" data-id="${saga.id}" style="background: ${saga.background}" onclick="selectSaga(${saga.id})">
                 <div class="saga-icon">${saga.icon}</div>
                 <div class="saga-title">${saga.title}</div>
                 <div class="saga-subtitle">${saga.subtitle}</div>

@@ -233,10 +233,11 @@
     transform: translateX(-50%) scale(1.15);
 }
 
-/* Top Floating Buttons (Home, Chronologie, Calendrier & Settings) */
+/* Top Floating Buttons (Home, Chronologie, Calendrier, Sommaire & Settings) */
 .floating-home-btn,
 .floating-chronologie-btn,
 .floating-calendrier-btn,
+.floating-sommaire-btn,
 .floating-settings-btn {
     position: absolute;
     top: 15px;
@@ -261,7 +262,8 @@
     left: 70px;
 }
 
-.floating-calendrier-btn {
+.floating-calendrier-btn,
+.floating-sommaire-btn {
     right: 70px;
 }
 
@@ -272,6 +274,7 @@
 .floating-home-btn:hover,
 .floating-chronologie-btn:hover,
 .floating-calendrier-btn:hover,
+.floating-sommaire-btn:hover,
 .floating-settings-btn:hover {
     opacity: 1;
     transform: scale(1.1);
@@ -280,6 +283,7 @@
 .floating-home-btn svg,
 .floating-chronologie-btn svg,
 .floating-calendrier-btn svg,
+.floating-sommaire-btn svg,
 .floating-settings-btn svg {
     width: 24px;
     height: 24px;
@@ -295,6 +299,7 @@
 .floating-home-btn.active svg,
 .floating-chronologie-btn.active svg,
 .floating-calendrier-btn.active svg,
+.floating-sommaire-btn.active svg,
 .floating-settings-btn.active svg {
     opacity: 1;
     filter: drop-shadow(0 0 12px rgba(102, 126, 234, 1))
@@ -305,6 +310,7 @@
 .floating-home-btn.active svg path,
 .floating-chronologie-btn.active svg path,
 .floating-calendrier-btn.active svg path,
+.floating-sommaire-btn.active svg path,
 .floating-settings-btn.active svg path {
     fill: #667eea;
 }
@@ -462,4 +468,76 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 3px;
     transition: width 0.3s ease;
+}
+
+/* Active state for saga and character cards */
+.saga-card.active-item,
+.character-card.active-item {
+    border: 3px solid rgba(102, 126, 234, 0.8);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6),
+                0 15px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Sommaire Page */
+.sommaire-list {
+    padding: 20px;
+}
+
+.chapter-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.chapter-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.chapter-item.locked {
+    opacity: 0.5;
+    border-left-color: #666;
+}
+
+.chapter-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 50px;
+    text-align: center;
+}
+
+.chapter-item.locked .chapter-number {
+    color: #666;
+}
+
+.chapter-info {
+    flex: 1;
+}
+
+.chapter-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.chapter-status {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.chapter-item.completed .chapter-status {
+    color: #4caf50;
+}
+
+.chapter-item.locked .chapter-status {
+    color: #999;
 }

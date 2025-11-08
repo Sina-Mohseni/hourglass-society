@@ -209,6 +209,15 @@
                 </div>
             </div>
 
+            <!-- SOMMAIRE (Saga Chapters) -->
+            <div class="app-window" id="sommaire">
+                <div class="app-header">
+                    <button class="back-btn" onclick="closeApp()">←</button>
+                    <h2 id="sommaireTitle">SOMMAIRE</h2>
+                </div>
+                <div class="app-content" id="sommaireContent"></div>
+            </div>
+
             <!-- Event Detail Page -->
             <div class="app-window" id="eventDetail">
                 <div class="app-header">
@@ -426,9 +435,15 @@
             </svg>
         </button>
 
-        <button class="floating-calendrier-btn" onclick="openApp('calendrier')" title="Calendrier">
+        <button class="floating-calendrier-btn" onclick="openApp('calendrier')" title="Calendrier" style="display: none;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                 <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+        </button>
+
+        <button class="floating-sommaire-btn" onclick="openApp('sommaire')" title="Sommaire" style="display: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <path d="M3 9h14V7H3v2zm0 4h14v-2H3v2zm0 4h14v-2H3v2zm16 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z"/>
             </svg>
         </button>
 
