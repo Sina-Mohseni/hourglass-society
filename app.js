@@ -12,6 +12,7 @@ let wallpapers = [];
 let currentWallpaper = 0;
 let events = [];
 let characters = [];
+let sagas = [];
 let prologueData = null;
 let currentQuestion = 0;
 let selectedAnswers = [];
@@ -307,7 +308,10 @@ async function loadData() {
         
         // Load Characters
         await loadCharacters();
-        
+
+        // Load Sagas
+        await loadSagas();
+
         // Load Flash News
         await loadFlashNews();
 
@@ -2133,7 +2137,7 @@ function selectEra(era) {
 
     // Refresh content in other pages
     renderCharactersGallery();
-    // renderSagas(); // Will be added when SAGAS content is implemented
+    renderSagas();
 }
 
 // Initialize era state on page load
@@ -2175,6 +2179,48 @@ function renderCharactersGallery() {
                 </div>
                 <div class="character-name">${character.name}</div>
                 <div class="character-title">${character.title}</div>
+            </div>
+        `).join('') +
+    '</div>';
+}
+
+// Load Sagas
+async function loadSagas() {
+    try {
+        const response = await fetch('data/sagas.json');
+        sagas = await response.json();
+        renderSagas();
+    } catch (error) {
+        console.error('Error loading sagas:', error);
+    }
+}
+
+// Render Sagas
+function renderSagas() {
+    const container = document.getElementById('sagasContent');
+
+    // Filter sagas by active era
+    const filteredSagas = sagas.filter(s => s.era === activeEra);
+
+    if (filteredSagas.length === 0) {
+        container.innerHTML = '<div class="no-content"><p style="color: white; text-align: center; margin-top: 50px;">Aucune saga dans cette ère...</p></div>';
+        return;
+    }
+
+    container.innerHTML = '<div class="sagas-grid">' +
+        filteredSagas.map(saga => `
+            <div class="saga-card" style="background: ${saga.background}">
+                <div class="saga-icon">${saga.icon}</div>
+                <div class="saga-title">${saga.title}</div>
+                <div class="saga-subtitle">${saga.subtitle}</div>
+                <div class="saga-description">${saga.description}</div>
+                <div class="saga-progress">
+                    <div class="saga-status">${saga.status}</div>
+                    <div class="saga-episodes">${saga.completedEpisodes}/${saga.episodes} épisodes</div>
+                </div>
+                <div class="saga-progress-bar">
+                    <div class="saga-progress-fill" style="width: ${(saga.completedEpisodes / saga.episodes) * 100}%"></div>
+                </div>
             </div>
         `).join('') +
     '</div>';
