@@ -31,7 +31,7 @@
 
     .floating-lieux-btn,
     .floating-projets-btn {
-        bottom: calc(150px + env(safe-area-inset-bottom));
+        bottom: calc(85px + env(safe-area-inset-bottom));
     }
 
     .nav-label {
