@@ -57,7 +57,7 @@ function updateIconStates(appId) {
         if (chronologieIcon) chronologieIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.SAGAS) {
         if (sagasIcon) sagasIcon.classList.add('active');
-    } else if (appId === CONFIG.APPS.ELEMENTS) {
+    } else if (appId === CONFIG.APPS.MEMBRES || appId === CONFIG.APPS.CHARACTER_DETAIL) {
         if (elementsIcon) elementsIcon.classList.add('active');
     }
 }
