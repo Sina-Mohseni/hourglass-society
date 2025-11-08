@@ -219,6 +219,20 @@
     transform: translateX(-50%) scale(1.1);
 }
 
+/* Active state for bottom floating buttons */
+.floating-itemline-btn.active,
+.floating-crossline-btn.active,
+.floating-timeline-btn.active {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 1),
+                0 0 40px rgba(102, 126, 234, 0.8),
+                0 10px 30px rgba(102, 126, 234, 0.5);
+    transform: scale(1.15);
+}
+
+.floating-crossline-btn.active {
+    transform: translateX(-50%) scale(1.15);
+}
+
 /* Top Floating Buttons (Home, Chronologie, Calendrier & Settings) */
 .floating-home-btn,
 .floating-chronologie-btn,
@@ -275,4 +289,22 @@
 /* Chronologie icon horizontal in header */
 .floating-chronologie-btn svg {
     transform: rotate(90deg);
+}
+
+/* Active state for header floating buttons */
+.floating-home-btn.active svg,
+.floating-chronologie-btn.active svg,
+.floating-calendrier-btn.active svg,
+.floating-settings-btn.active svg {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(102, 126, 234, 1))
+            drop-shadow(0 0 20px rgba(102, 126, 234, 0.8))
+            drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.floating-home-btn.active svg path,
+.floating-chronologie-btn.active svg path,
+.floating-calendrier-btn.active svg path,
+.floating-settings-btn.active svg path {
+    fill: #667eea;
 }

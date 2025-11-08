@@ -425,22 +425,53 @@ function closeApp() {
 
 // Update floating buttons active state
 function updateFloatingButtons(appId) {
-    const lieuxBtn = document.querySelector('.floating-lieux-btn');
-    const projetsBtn = document.querySelector('.floating-projets-btn');
-    
-    if (lieuxBtn) {
-        lieuxBtn.classList.remove('active');
+    // Bottom floating buttons
+    const itemlineBtn = document.querySelector('.floating-itemline-btn');
+    const crosslineBtn = document.querySelector('.floating-crossline-btn');
+    const timelineBtn = document.querySelector('.floating-timeline-btn');
+
+    if (itemlineBtn) {
+        itemlineBtn.classList.remove('active');
         if (appId === 'lieux' || appId === 'locationDetail') {
-            lieuxBtn.classList.add('active');
+            itemlineBtn.classList.add('active');
         }
     }
-    
-    if (projetsBtn) {
-        projetsBtn.classList.remove('active');
-        if (appId === 'eaNexus' || appId.includes('animConnect') || appId.includes('echoSphere') || 
-            appId.includes('arena') || appId.includes('adventures') || appId.includes('medias') || appId.includes('eaCenter')) {
-            projetsBtn.classList.add('active');
+
+    if (crosslineBtn) {
+        crosslineBtn.classList.remove('active');
+        if (appId === 'crossline') {
+            crosslineBtn.classList.add('active');
         }
+    }
+
+    if (timelineBtn) {
+        timelineBtn.classList.remove('active');
+        if (appId === 'eaNexus' || appId.includes('animConnect') || appId.includes('echoSphere') ||
+            appId.includes('arena') || appId.includes('adventures') || appId.includes('medias') || appId.includes('eaCenter')) {
+            timelineBtn.classList.add('active');
+        }
+    }
+
+    // Header floating buttons
+    const homeBtn = document.querySelector('.floating-home-btn');
+    const chronologieBtn = document.querySelector('.floating-chronologie-btn');
+    const calendrierBtn = document.querySelector('.floating-calendrier-btn');
+    const settingsBtn = document.querySelector('.floating-settings-btn');
+
+    // Remove all active states from header buttons
+    if (homeBtn) homeBtn.classList.remove('active');
+    if (chronologieBtn) chronologieBtn.classList.remove('active');
+    if (calendrierBtn) calendrierBtn.classList.remove('active');
+    if (settingsBtn) settingsBtn.classList.remove('active');
+
+    // Set active based on current app
+    if (appId === 'home') {
+        if (homeBtn) homeBtn.classList.add('active');
+    } else if (appId === 'calendrier') {
+        if (chronologieBtn) chronologieBtn.classList.add('active');
+        if (calendrierBtn) calendrierBtn.classList.add('active');
+    } else if (appId === 'parametres') {
+        if (settingsBtn) settingsBtn.classList.add('active');
     }
 }
 
@@ -2232,3 +2263,9 @@ function checkLockedWallpaper() {
 
 window.openCharacterDetail = openCharacterDetail;
 window.toggleWallpaperLock = toggleWallpaperLock;
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Set home icon as active on startup
+    updateFloatingButtons('home');
+});
