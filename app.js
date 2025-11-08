@@ -2194,6 +2194,19 @@ function selectElement(elementId) {
         card.classList.remove('active-item');
     });
 
+    // Change background video to element's video
+    const element = characters.find(c => c.id === elementId);
+    if (element && element.videoWallpaper) {
+        const video = document.getElementById('backgroundVideo');
+        const bgImage = document.getElementById('backgroundImage');
+
+        bgImage.style.display = 'none';
+        video.style.display = 'block';
+        video.src = element.videoWallpaper;
+        video.load();
+        video.play();
+    }
+
     // Show calendrier button, hide sommaire button
     updateHeaderButtons();
 }
@@ -2215,6 +2228,19 @@ function selectSaga(sagaId) {
     document.querySelectorAll('.character-card').forEach(card => {
         card.classList.remove('active-item');
     });
+
+    // Change background video to saga's video
+    const saga = sagas.find(s => s.id === sagaId);
+    if (saga && saga.videoWallpaper) {
+        const video = document.getElementById('backgroundVideo');
+        const bgImage = document.getElementById('backgroundImage');
+
+        bgImage.style.display = 'none';
+        video.style.display = 'block';
+        video.src = saga.videoWallpaper;
+        video.load();
+        video.play();
+    }
 
     // Show sommaire button, hide calendrier button
     updateHeaderButtons();
