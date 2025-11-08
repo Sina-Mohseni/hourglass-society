@@ -1,0 +1,78 @@
+[
+  {
+    "type": "element",
+    "itemId": 1,
+    "itemName": "Kajiit - Mage Alchimiste",
+    "items": [
+      {
+        "id": 1,
+        "name": "Bâton d'Arcane",
+        "category": "Arme",
+        "rarity": "Légendaire",
+        "description": "Un bâton ancien imprégné de magie élémentaire",
+        "icon": "⚔️"
+      },
+      {
+        "id": 2,
+        "name": "Fiole d'Élixir Suprême",
+        "category": "Consommable",
+        "rarity": "Rare",
+        "description": "Potion de guérison aux propriétés extraordinaires",
+        "icon": "🧪"
+      }
+    ]
+  },
+  {
+    "type": "element",
+    "itemId": 2,
+    "itemName": "Cyber",
+    "items": [
+      {
+        "id": 1,
+        "name": "Lame Plasma",
+        "category": "Arme",
+        "rarity": "Épique",
+        "description": "Épée high-tech utilisant l'énergie plasma",
+        "icon": "⚡"
+      }
+    ]
+  },
+  {
+    "type": "saga",
+    "itemId": 1,
+    "itemName": "Les Gardiens du Nexus",
+    "items": [
+      {
+        "id": 1,
+        "name": "Clé du Nexus",
+        "category": "Objet Clé",
+        "rarity": "Légendaire",
+        "description": "Permet d'accéder aux zones les plus profondes du Nexus",
+        "icon": "🔑"
+      },
+      {
+        "id": 2,
+        "name": "Cristal de Résonance",
+        "category": "Artefact",
+        "rarity": "Rare",
+        "description": "Cristal vibrant avec l'énergie du Nexus",
+        "icon": "💎"
+      }
+    ]
+  },
+  {
+    "type": "saga",
+    "itemId": 2,
+    "itemName": "Chroniques de l'Ombre",
+    "items": [
+      {
+        "id": 1,
+        "name": "Masque de l'Ombre",
+        "category": "Équipement",
+        "rarity": "Épique",
+        "description": "Masque permettant de se dissimuler dans les ténèbres",
+        "icon": "🎭"
+      }
+    ]
+  }
+]

@@ -14,6 +14,9 @@ let events = [];
 let characters = [];
 let sagas = [];
 let eras = [];
+let itemlineData = [];
+let crosslineData = [];
+let timelineData = [];
 let prologueData = null;
 let currentQuestion = 0;
 let selectedAnswers = [];
@@ -316,6 +319,16 @@ async function loadData() {
         // Load Eras
         const erasResponse = await fetch('data/eras.json');
         eras = await erasResponse.json();
+
+        // Load Itemline, Crossline, Timeline data
+        const itemlineResponse = await fetch('data/itemline.json');
+        itemlineData = await itemlineResponse.json();
+
+        const crosslineResponse = await fetch('data/crossline.json');
+        crosslineData = await crosslineResponse.json();
+
+        const timelineResponse = await fetch('data/timeline-data.json');
+        timelineData = await timelineResponse.json();
 
         // Load Flash News
         await loadFlashNews();
@@ -2242,6 +2255,11 @@ function selectElement(elementId) {
 
     // Show calendrier button, hide sommaire button
     updateHeaderButtons();
+
+    // Load data for the 3 pages
+    loadItemlineData(elementId, 'element');
+    loadCrosslineData(elementId, 'element');
+    loadTimelineData(elementId, 'element');
 }
 
 function selectSaga(sagaId) {
@@ -2280,21 +2298,41 @@ function selectSaga(sagaId) {
 
     // Load saga sommaire
     loadSagaSommaire(sagaId);
+
+    // Load data for the 3 pages
+    loadItemlineData(sagaId, 'saga');
+    loadCrosslineData(sagaId, 'saga');
+    loadTimelineData(sagaId, 'saga');
 }
 
 function updateHeaderButtons() {
     const calendrierBtn = document.querySelector('.floating-calendrier-btn');
     const sommaireBtn = document.querySelector('.floating-sommaire-btn');
+    const itemlineBtn = document.querySelector('.floating-itemline-btn');
+    const crosslineBtn = document.querySelector('.floating-crossline-btn');
+    const timelineBtn = document.querySelector('.floating-timeline-btn');
 
     if (activeItemType === 'element') {
         calendrierBtn.style.display = 'flex';
         sommaireBtn.style.display = 'none';
+        // Show the 3 buttons for element
+        itemlineBtn.style.display = 'flex';
+        crosslineBtn.style.display = 'flex';
+        timelineBtn.style.display = 'flex';
     } else if (activeItemType === 'saga') {
         calendrierBtn.style.display = 'none';
         sommaireBtn.style.display = 'flex';
+        // Show the 3 buttons for saga
+        itemlineBtn.style.display = 'flex';
+        crosslineBtn.style.display = 'flex';
+        timelineBtn.style.display = 'flex';
     } else {
         calendrierBtn.style.display = 'none';
         sommaireBtn.style.display = 'none';
+        // Hide the 3 buttons when no item is active
+        itemlineBtn.style.display = 'none';
+        crosslineBtn.style.display = 'none';
+        timelineBtn.style.display = 'none';
     }
 }
 
@@ -2328,6 +2366,109 @@ function loadSagaSommaire(sagaId) {
             </div>
         `).join('') +
     '</div>';
+}
+
+// Load Itemline data for active item
+function loadItemlineData(itemId, itemType) {
+    const data = itemlineData.find(d => d.itemId === itemId && d.type === itemType);
+    if (!data) {
+        console.log('No itemline data found for:', itemId, itemType);
+        return;
+    }
+
+    const container = document.getElementById('lieuxGrid');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div style="padding: 20px;">
+            <h3 style="color: white; margin-bottom: 20px; text-align: center;">${data.itemName}</h3>
+            <div style="display: grid; gap: 15px;">
+                ${data.items.map(item => `
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; border-left: 4px solid #667eea;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                            <div style="font-size: 32px;">${item.icon}</div>
+                            <div style="flex: 1;">
+                                <div style="color: white; font-weight: bold; font-size: 16px;">${item.name}</div>
+                                <div style="color: #888; font-size: 12px;">${item.category} • ${item.rarity}</div>
+                            </div>
+                        </div>
+                        <div style="color: #ccc; font-size: 14px;">${item.description}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// Load Crossline data for active item
+function loadCrosslineData(itemId, itemType) {
+    const data = crosslineData.find(d => d.itemId === itemId && d.type === itemType);
+    if (!data) {
+        console.log('No crossline data found for:', itemId, itemType);
+        return;
+    }
+
+    const container = document.getElementById('crosslineContent');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div style="padding: 20px;">
+            <h3 style="color: white; margin-bottom: 20px; text-align: center;">${data.itemName} - Connexions</h3>
+            <div style="display: grid; gap: 15px;">
+                ${data.connections.map(conn => `
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; border-left: 4px solid #f093fb;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div>
+                                <div style="color: white; font-weight: bold; font-size: 16px;">${conn.targetName}</div>
+                                <div style="color: #f093fb; font-size: 12px; text-transform: uppercase;">${conn.relationType}</div>
+                            </div>
+                            <div style="background: rgba(240, 147, 251, 0.2); padding: 8px 12px; border-radius: 20px; color: #f093fb; font-weight: bold;">
+                                ${conn.strength}%
+                            </div>
+                        </div>
+                        <div style="color: #ccc; font-size: 14px;">${conn.description}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// Load Timeline data for active item
+function loadTimelineData(itemId, itemType) {
+    const data = timelineData.find(d => d.itemId === itemId && d.type === itemType);
+    if (!data) {
+        console.log('No timeline data found for:', itemId, itemType);
+        return;
+    }
+
+    const container = document.getElementById('nexusGrid');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div style="padding: 20px;">
+            <h3 style="color: white; margin-bottom: 20px; text-align: center;">${data.itemName} - Timeline</h3>
+            <div style="position: relative; padding-left: 30px;">
+                <div style="position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #667eea, #764ba2);"></div>
+                ${data.timeline.map((event, index) => `
+                    <div style="position: relative; margin-bottom: 30px;">
+                        <div style="position: absolute; left: -22px; width: 16px; height: 16px; background: #667eea; border-radius: 50%; border: 3px solid #1a1a2e;"></div>
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; margin-left: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="font-size: 24px;">${event.icon}</div>
+                                <div style="flex: 1;">
+                                    <div style="color: #667eea; font-size: 12px; font-weight: bold;">${event.date}</div>
+                                    <div style="color: white; font-weight: bold; font-size: 16px;">${event.title}</div>
+                                    <div style="color: #888; font-size: 11px; text-transform: uppercase;">${event.type}</div>
+                                </div>
+                            </div>
+                            <div style="color: #ccc; font-size: 14px;">${event.description}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
 }
 
 // Load Characters

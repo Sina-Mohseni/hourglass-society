@@ -1,0 +1,84 @@
+[
+  {
+    "type": "element",
+    "itemId": 1,
+    "itemName": "Kajiit - Mage Alchimiste",
+    "connections": [
+      {
+        "id": 1,
+        "targetType": "element",
+        "targetId": 2,
+        "targetName": "Cyber",
+        "relationType": "Allié",
+        "description": "Alliance stratégique lors de la bataille du Nexus",
+        "strength": 85
+      },
+      {
+        "id": 2,
+        "targetType": "saga",
+        "targetId": 1,
+        "targetName": "Les Gardiens du Nexus",
+        "relationType": "Participant",
+        "description": "Membre fondateur des Gardiens",
+        "strength": 100
+      }
+    ]
+  },
+  {
+    "type": "element",
+    "itemId": 2,
+    "itemName": "Cyber",
+    "connections": [
+      {
+        "id": 1,
+        "targetType": "element",
+        "targetId": 1,
+        "targetName": "Kajiit",
+        "relationType": "Allié",
+        "description": "Compagnon de combat",
+        "strength": 85
+      }
+    ]
+  },
+  {
+    "type": "saga",
+    "itemId": 1,
+    "itemName": "Les Gardiens du Nexus",
+    "connections": [
+      {
+        "id": 1,
+        "targetType": "element",
+        "targetId": 1,
+        "targetName": "Kajiit",
+        "relationType": "Personnage Principal",
+        "description": "Héros principal de cette saga",
+        "strength": 100
+      },
+      {
+        "id": 2,
+        "targetType": "saga",
+        "targetId": 2,
+        "targetName": "Chroniques de l'Ombre",
+        "relationType": "Saga Liée",
+        "description": "Les événements se déroulent en parallèle",
+        "strength": 70
+      }
+    ]
+  },
+  {
+    "type": "saga",
+    "itemId": 2,
+    "itemName": "Chroniques de l'Ombre",
+    "connections": [
+      {
+        "id": 1,
+        "targetType": "saga",
+        "targetId": 1,
+        "targetName": "Les Gardiens du Nexus",
+        "relationType": "Saga Liée",
+        "description": "Événements parallèles dans la même ère",
+        "strength": 70
+      }
+    ]
+  }
+]

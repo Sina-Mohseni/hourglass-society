@@ -1,0 +1,118 @@
+[
+  {
+    "type": "element",
+    "itemId": 1,
+    "itemName": "Kajiit - Mage Alchimiste",
+    "timeline": [
+      {
+        "id": 1,
+        "date": "An 2145 - Mois 3",
+        "title": "L'Éveil du Pouvoir",
+        "description": "Découverte de ses capacités d'alchimie magique dans les ruines anciennes",
+        "type": "Événement Majeur",
+        "icon": "✨"
+      },
+      {
+        "id": 2,
+        "date": "An 2147 - Mois 8",
+        "title": "Rencontre avec Cyber",
+        "description": "Première alliance lors de l'attaque du Nexus Central",
+        "type": "Rencontre",
+        "icon": "🤝"
+      },
+      {
+        "id": 3,
+        "date": "An 2148 - Mois 1",
+        "title": "Formation des Gardiens",
+        "description": "Création de l'organisation des Gardiens du Nexus",
+        "type": "Événement Majeur",
+        "icon": "⚔️"
+      }
+    ]
+  },
+  {
+    "type": "element",
+    "itemId": 2,
+    "itemName": "Cyber",
+    "timeline": [
+      {
+        "id": 1,
+        "date": "An 2146 - Mois 11",
+        "title": "Activation Système",
+        "description": "Première activation en tant qu'entité cybernétique",
+        "type": "Naissance",
+        "icon": "⚡"
+      },
+      {
+        "id": 2,
+        "date": "An 2147 - Mois 8",
+        "title": "Alliance avec Kajiit",
+        "description": "Rencontre décisive lors de la bataille du Nexus",
+        "type": "Rencontre",
+        "icon": "🤝"
+      }
+    ]
+  },
+  {
+    "type": "saga",
+    "itemId": 1,
+    "itemName": "Les Gardiens du Nexus",
+    "timeline": [
+      {
+        "id": 1,
+        "date": "An 2148 - Mois 1",
+        "title": "Chapitre I - L'Éveil",
+        "description": "Formation de l'organisation et premiers défis",
+        "type": "Chapitre",
+        "icon": "📖"
+      },
+      {
+        "id": 2,
+        "date": "An 2148 - Mois 6",
+        "title": "Chapitre V - La Clé Perdue",
+        "description": "Quête de la mystérieuse Clé du Nexus",
+        "type": "Chapitre",
+        "icon": "📖"
+      },
+      {
+        "id": 3,
+        "date": "An 2149 - Mois 2",
+        "title": "Arc En Cours",
+        "description": "Les secrets du Nexus Central sont révélés",
+        "type": "Arc Actuel",
+        "icon": "⭐"
+      }
+    ]
+  },
+  {
+    "type": "saga",
+    "itemId": 2,
+    "itemName": "Chroniques de l'Ombre",
+    "timeline": [
+      {
+        "id": 1,
+        "date": "An 2148 - Mois 3",
+        "title": "Chapitre I - L'Organisation Secrète",
+        "description": "Découverte de l'existence d'une organisation cachée",
+        "type": "Chapitre",
+        "icon": "📖"
+      },
+      {
+        "id": 2,
+        "date": "An 2148 - Mois 9",
+        "title": "Chapitre III - Les Secrets Enfouis",
+        "description": "Révélations sur les origines de l'organisation",
+        "type": "Chapitre",
+        "icon": "📖"
+      },
+      {
+        "id": 3,
+        "date": "An 2149 - Mois 1",
+        "title": "Arc En Cours",
+        "description": "Infiltration des niveaux profonds",
+        "type": "Arc Actuel",
+        "icon": "⭐"
+      }
+    ]
+  }
+]
