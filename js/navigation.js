@@ -41,12 +41,12 @@ export function closeApp() {
 function updateIconStates(appId) {
     // Remove all active states from footer icons
     const worldIcon = document.getElementById('worldIcon');
-    const calendarIcon = document.getElementById('calendarIcon');
+    const chronologieIcon = document.getElementById('chronologieIcon');
     const sagasIcon = document.getElementById('sagasIcon');
     const elementsIcon = document.getElementById('elementsIcon');
 
     if (worldIcon) worldIcon.classList.remove('active');
-    if (calendarIcon) calendarIcon.classList.remove('active');
+    if (chronologieIcon) chronologieIcon.classList.remove('active');
     if (sagasIcon) sagasIcon.classList.remove('active');
     if (elementsIcon) elementsIcon.classList.remove('active');
 
@@ -54,7 +54,7 @@ function updateIconStates(appId) {
     if (appId === CONFIG.APPS.CARTE) {
         if (worldIcon) worldIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.CALENDRIER) {
-        if (calendarIcon) calendarIcon.classList.add('active');
+        if (chronologieIcon) chronologieIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.SAGAS) {
         if (sagasIcon) sagasIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.ELEMENTS) {
