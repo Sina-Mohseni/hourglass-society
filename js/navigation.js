@@ -39,21 +39,22 @@ export function closeApp() {
  * Update header icon active states
  */
 function updateIconStates(appId) {
-    // Remove all active states
-    if (elements.homeIcon) elements.homeIcon.classList.remove('active');
-    if (elements.calendarIcon) elements.calendarIcon.classList.remove('active');
-    if (elements.settingsIcon) elements.settingsIcon.classList.remove('active');
-    if (elements.membresIcon) elements.membresIcon.classList.remove('active');
+    // Remove all active states from footer icons
+    const worldIcon = document.getElementById('worldIcon');
+    const calendarIcon = document.getElementById('calendarIcon');
+    const membresIcon = document.getElementById('membresIcon');
+
+    if (worldIcon) worldIcon.classList.remove('active');
+    if (calendarIcon) calendarIcon.classList.remove('active');
+    if (membresIcon) membresIcon.classList.remove('active');
 
     // Set active based on current app
-    if (appId === CONFIG.APPS.HOME) {
-        if (elements.homeIcon) elements.homeIcon.classList.add('active');
+    if (appId === CONFIG.APPS.CARTE) {
+        if (worldIcon) worldIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.CALENDRIER) {
-        if (elements.calendarIcon) elements.calendarIcon.classList.add('active');
-    } else if (appId === CONFIG.APPS.PARAMETRES) {
-        if (elements.settingsIcon) elements.settingsIcon.classList.add('active');
+        if (calendarIcon) calendarIcon.classList.add('active');
     } else if (appId === CONFIG.APPS.MEMBRES || appId === CONFIG.APPS.CHARACTER_DETAIL) {
-        if (elements.membresIcon) elements.membresIcon.classList.add('active');
+        if (membresIcon) membresIcon.classList.add('active');
     }
 }
 
