@@ -368,11 +368,11 @@ function updatePageTitle(appId) {
     const titles = {
         'home': 'EA Mobile',
         'carte': 'MONDE',
-        'calendrier': 'CHRONOLOGIE',
+        'calendrier': 'CALENDRIER',
         'sagas': 'SAGAS',
         'membres': 'ELEMENTS',
         'characterDetail': 'ELEMENTS',
-        'parametres': 'Paramètres',
+        'parametres': 'PARAMÈTRES',
         'lieux': 'ITEMLINE',
         'eaNexus': 'TIMELINE',
         'flash': 'Flash',
