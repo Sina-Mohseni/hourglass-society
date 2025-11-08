@@ -368,6 +368,7 @@ function updatePageTitle(appId) {
     const titles = {
         'home': 'EA Mobile',
         'carte': 'MONDE',
+        'chronologie': 'CHRONOLOGIE',
         'calendrier': 'CALENDRIER',
         'sagas': 'SAGAS',
         'membres': 'ELEMENTS',
@@ -467,8 +468,9 @@ function updateFloatingButtons(appId) {
     // Set active based on current app
     if (appId === 'home') {
         if (homeBtn) homeBtn.classList.add('active');
-    } else if (appId === 'calendrier') {
+    } else if (appId === 'chronologie') {
         if (chronologieBtn) chronologieBtn.classList.add('active');
+    } else if (appId === 'calendrier') {
         if (calendrierBtn) calendrierBtn.classList.add('active');
     } else if (appId === 'parametres') {
         if (settingsBtn) settingsBtn.classList.add('active');
@@ -2265,7 +2267,11 @@ window.openCharacterDetail = openCharacterDetail;
 window.toggleWallpaperLock = toggleWallpaperLock;
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    // Set home icon as active on startup
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        updateFloatingButtons('home');
+    });
+} else {
+    // DOM already loaded
     updateFloatingButtons('home');
-});
+}

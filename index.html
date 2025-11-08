@@ -152,10 +152,22 @@
             </div>
 
             <!-- Calendrier -->
-            <div class="app-window" id="calendrier">
+            <!-- CHRONOLOGIE (Timeline) -->
+            <div class="app-window" id="chronologie">
                 <div class="app-header">
                     <button class="back-btn" onclick="closeApp()">←</button>
                     <h2>CHRONOLOGIE</h2>
+                </div>
+                <div class="app-content">
+                    <p style="color: white; text-align: center; margin-top: 50px;">Chronologie à venir...</p>
+                </div>
+            </div>
+
+            <!-- CALENDRIER -->
+            <div class="app-window" id="calendrier">
+                <div class="app-header">
+                    <button class="back-btn" onclick="closeApp()">←</button>
+                    <h2>CALENDRIER</h2>
                 </div>
                 <div class="app-content calendar-view">
                     <!-- Flash News Section -->
@@ -163,7 +175,7 @@
                         <h3 class="flash-section-title">⚡ Actualités du Jour</h3>
                         <div class="flash-mini-feed" id="flashMiniFeed"></div>
                     </div>
-                    
+
                     <div class="calendar-header">
                         <button id="prevMonth">←</button>
                         <span id="currentMonth">Janvier 2025</span>
@@ -385,7 +397,7 @@
             </svg>
         </button>
 
-        <button class="floating-chronologie-btn" onclick="openApp('calendrier')" title="CHRONOLOGIE">
+        <button class="floating-chronologie-btn" onclick="openApp('chronologie')" title="CHRONOLOGIE">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                 <path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm-4-5l-4-4V4h8v3.5l-4 4z"/>
             </svg>
