@@ -115,6 +115,11 @@
     font-weight: 600;
 }
 
+/* Chronologie icon horizontal */
+.chronologie-icon svg {
+    transform: rotate(90deg);
+}
+
 /* Screen Content */
 .screen-content {
     height: calc(100% - 70px);
