@@ -584,108 +584,133 @@ window.selectElement = selectElement;
 window.selectSaga = selectSaga;
 
 // Calendar
-function initializeCalendar() {
-    let currentDate = new Date();
-    let currentMonth = currentDate.getMonth();
-    let currentYear = currentDate.getFullYear();
-    let selectedDay = null;
-
-    const monthNames = [
+// Samsung Calendar System
+let samsungCalendar = {
+    currentMonth: new Date().getMonth(),
+    currentYear: new Date().getFullYear(),
+    selectedDate: null,
+    monthNames: [
         'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
         'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
-    ];
+    ]
+};
 
-    const renderCalendar = () => {
-        const grid = document.getElementById('calendarGrid');
-        const monthDisplay = document.getElementById('currentMonth');
-        monthDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+function initializeCalendar() {
+    renderSamsungCalendar();
+}
 
-        const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-        const today = new Date();
+function renderSamsungCalendar() {
+    const monthDisplay = document.getElementById('samsungMonthDisplay');
+    const yearDisplay = document.getElementById('samsungYearDisplay');
+    const daysGrid = document.getElementById('samsungDaysGrid');
 
-        let html = '';
+    if (!monthDisplay || !yearDisplay || !daysGrid) return;
 
-        // Headers
-        const dayHeaders = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
-        dayHeaders.forEach(day => {
-            html += `<div class="calendar-day header">${day}</div>`;
-        });
+    // Update header
+    monthDisplay.textContent = samsungCalendar.monthNames[samsungCalendar.currentMonth];
+    yearDisplay.textContent = samsungCalendar.currentYear;
 
-        // Empty cells
-        for (let i = 0; i < firstDay; i++) {
-            html += `<div class="calendar-day other-month"></div>`;
-        }
+    // Calculate calendar data
+    const firstDay = new Date(samsungCalendar.currentYear, samsungCalendar.currentMonth, 1).getDay();
+    const daysInMonth = new Date(samsungCalendar.currentYear, samsungCalendar.currentMonth + 1, 0).getDate();
+    const daysInPrevMonth = new Date(samsungCalendar.currentYear, samsungCalendar.currentMonth, 0).getDate();
+    const today = new Date();
 
-        // Days
-        for (let day = 1; day <= daysInMonth; day++) {
-            const isToday = day === today.getDate() && 
-                          currentMonth === today.getMonth() && 
-                          currentYear === today.getFullYear();
-            const todayClass = isToday ? 'today' : '';
-            
-            // Check if day has events
-            const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            const hasEvent = window.events && window.events.some(e => e.date === dateStr);
-            const eventClass = hasEvent ? 'has-event' : '';
-            
-            html += `<div class="calendar-day ${todayClass} ${eventClass}" onclick="selectDay(${day}, '${dateStr}')">${day}</div>`;
-        }
+    let html = '';
 
-        grid.innerHTML = html;
-    };
-    
-    window.selectDay = function(day, dateStr) {
-        selectedDay = day;
-        showDayEvents(dateStr);
-    };
-    
-    function showDayEvents(dateStr) {
-        const container = document.getElementById('dayEvents');
-        const dayEvents = window.events ? window.events.filter(e => e.date === dateStr) : [];
-        
-        if (dayEvents.length > 0) {
-            container.innerHTML = `
-                <div class="day-events-title">Événements du ${dateStr.split('-')[2]} ${monthNames[currentMonth]}</div>
-                ${dayEvents.map(event => {
-                    const character = characters.find(c => c.id === event.characterId);
-                    return `
-                        <div class="event-card" onclick="openEventDetail(${event.id})">
-                            <div class="event-card-title">${event.title}</div>
-                            <div class="event-card-meta">🕐 ${event.time} • 👤 ${event.characterName}</div>
-                            <div class="event-card-desc">${event.description}</div>
-                        </div>
-                    `;
-                }).join('')}
-            `;
-        } else {
-            container.innerHTML = `
-                <div class="day-events-title">Aucun événement ce jour</div>
-            `;
-        }
+    // Previous month days
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const day = daysInPrevMonth - i;
+        html += `
+            <div class="samsung-day-cell other-month">
+                <div class="samsung-day-number">${day}</div>
+            </div>
+        `;
     }
 
-    document.getElementById('prevMonth').addEventListener('click', () => {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        renderCalendar();
-        document.getElementById('dayEvents').innerHTML = '';
-    });
+    // Current month days
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${samsungCalendar.currentYear}-${String(samsungCalendar.currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const isToday = day === today.getDate() &&
+                       samsungCalendar.currentMonth === today.getMonth() &&
+                       samsungCalendar.currentYear === today.getFullYear();
+        const isSelected = samsungCalendar.selectedDate === dateStr;
+        const hasEvents = window.events && window.events.some(e => e.date === dateStr);
 
-    document.getElementById('nextMonth').addEventListener('click', () => {
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        renderCalendar();
-        document.getElementById('dayEvents').innerHTML = '';
-    });
+        const classes = [
+            'samsung-day-cell',
+            isToday ? 'today' : '',
+            isSelected ? 'selected' : '',
+            hasEvents ? 'has-events' : ''
+        ].filter(c => c).join(' ');
 
-    renderCalendar();
+        html += `
+            <div class="${classes}" onclick="selectSamsungDay('${dateStr}', ${day})">
+                <div class="samsung-day-number">${day}</div>
+                ${hasEvents ? '<div class="samsung-day-indicator"></div>' : ''}
+            </div>
+        `;
+    }
+
+    // Next month days
+    const totalCells = firstDay + daysInMonth;
+    const remainingCells = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    for (let day = 1; day <= remainingCells; day++) {
+        html += `
+            <div class="samsung-day-cell other-month">
+                <div class="samsung-day-number">${day}</div>
+            </div>
+        `;
+    }
+
+    daysGrid.innerHTML = html;
+}
+
+function changeMonth(direction) {
+    samsungCalendar.currentMonth += direction;
+    if (samsungCalendar.currentMonth > 11) {
+        samsungCalendar.currentMonth = 0;
+        samsungCalendar.currentYear++;
+    } else if (samsungCalendar.currentMonth < 0) {
+        samsungCalendar.currentMonth = 11;
+        samsungCalendar.currentYear--;
+    }
+    renderSamsungCalendar();
+}
+
+function selectSamsungDay(dateStr, day) {
+    samsungCalendar.selectedDate = dateStr;
+    renderSamsungCalendar();
+    showSamsungDayEvents(dateStr, day);
+}
+
+function showSamsungDayEvents(dateStr, day) {
+    const dateDisplay = document.getElementById('samsungEventsDate');
+    const eventsList = document.getElementById('samsungEventsList');
+
+    if (!dateDisplay || !eventsList) return;
+
+    const dayEvents = window.events ? window.events.filter(e => e.date === dateStr) : [];
+    const dateParts = dateStr.split('-');
+    const monthName = samsungCalendar.monthNames[parseInt(dateParts[1]) - 1];
+
+    dateDisplay.textContent = `${day} ${monthName} ${dateParts[0]}`;
+
+    if (dayEvents.length > 0) {
+        eventsList.innerHTML = dayEvents.map(event => `
+            <div class="samsung-event-item">
+                <div class="samsung-event-time">${event.time || '00:00'}</div>
+                <div class="samsung-event-title">${event.title}</div>
+                <div class="samsung-event-description">${event.description || ''}</div>
+            </div>
+        `).join('');
+    } else {
+        eventsList.innerHTML = `
+            <div style="text-align: center; color: #888; padding: 20px;">
+                Aucun événement ce jour
+            </div>
+        `;
+    }
 }
 
 // Event Detail
@@ -2329,7 +2354,7 @@ function selectElement(elementId) {
         video.play();
     }
 
-    // Show calendrier button, hide sommaire button
+    // Show calendrier and other buttons
     updateHeaderButtons();
 
     // Load data for the 3 pages
@@ -2369,11 +2394,8 @@ function selectSaga(sagaId) {
         video.play();
     }
 
-    // Show sommaire button, hide calendrier button
+    // Show calendrier and other buttons
     updateHeaderButtons();
-
-    // Load saga sommaire
-    loadSagaSommaire(sagaId);
 
     // Load data for the 3 pages
     loadItemlineData(sagaId, 'saga');
@@ -2383,28 +2405,20 @@ function selectSaga(sagaId) {
 
 function updateHeaderButtons() {
     const calendrierBtn = document.querySelector('.floating-calendrier-btn');
-    const sommaireBtn = document.querySelector('.floating-sommaire-btn');
     const itemlineBtn = document.querySelector('.floating-itemline-btn');
     const crosslineBtn = document.querySelector('.floating-crossline-btn');
     const timelineBtn = document.querySelector('.floating-timeline-btn');
 
-    if (activeItemType === 'element') {
+    if (activeItemType === 'element' || activeItemType === 'saga') {
+        // Always show calendrier for both element and saga
         calendrierBtn.style.display = 'flex';
-        sommaireBtn.style.display = 'none';
-        // Show the 3 buttons for element
-        itemlineBtn.style.display = 'flex';
-        crosslineBtn.style.display = 'flex';
-        timelineBtn.style.display = 'flex';
-    } else if (activeItemType === 'saga') {
-        calendrierBtn.style.display = 'none';
-        sommaireBtn.style.display = 'flex';
-        // Show the 3 buttons for saga
+        // Show the 3 buttons for element or saga
         itemlineBtn.style.display = 'flex';
         crosslineBtn.style.display = 'flex';
         timelineBtn.style.display = 'flex';
     } else {
-        calendrierBtn.style.display = 'none';
-        sommaireBtn.style.display = 'none';
+        // Keep calendrier visible even when no item is active
+        calendrierBtn.style.display = 'flex';
         // Hide the 3 buttons when no item is active
         itemlineBtn.style.display = 'none';
         crosslineBtn.style.display = 'none';

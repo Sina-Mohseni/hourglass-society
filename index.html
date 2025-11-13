@@ -203,20 +203,52 @@
                     <button class="back-btn" onclick="closeApp()">←</button>
                     <h2>CALENDRIER</h2>
                 </div>
-                <div class="app-content calendar-view">
-                    <!-- Flash News Section -->
-                    <div class="calendar-flash-section" id="calendarFlashSection">
-                        <h3 class="flash-section-title">⚡ Actualités du Jour</h3>
-                        <div class="flash-mini-feed" id="flashMiniFeed"></div>
+                <div class="app-content samsung-calendar-view">
+                    <!-- Calendar Header - Month/Year with Navigation -->
+                    <div class="samsung-calendar-header">
+                        <button class="samsung-month-nav" onclick="changeMonth(-1)">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <div class="samsung-month-year">
+                            <div class="samsung-month-display" id="samsungMonthDisplay">Janvier</div>
+                            <div class="samsung-year-display" id="samsungYearDisplay">2025</div>
+                        </div>
+                        <button class="samsung-month-nav" onclick="changeMonth(1)">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </button>
                     </div>
 
-                    <div class="calendar-header">
-                        <button id="prevMonth">←</button>
-                        <span id="currentMonth">Janvier 2025</span>
-                        <button id="nextMonth">→</button>
+                    <!-- Days of Week Header -->
+                    <div class="samsung-weekdays">
+                        <div class="samsung-weekday">Dim</div>
+                        <div class="samsung-weekday">Lun</div>
+                        <div class="samsung-weekday">Mar</div>
+                        <div class="samsung-weekday">Mer</div>
+                        <div class="samsung-weekday">Jeu</div>
+                        <div class="samsung-weekday">Ven</div>
+                        <div class="samsung-weekday">Sam</div>
                     </div>
-                    <div class="calendar-grid" id="calendarGrid"></div>
-                    <div class="day-events" id="dayEvents"></div>
+
+                    <!-- Calendar Days Grid -->
+                    <div class="samsung-days-grid" id="samsungDaysGrid">
+                        <!-- Days will be generated dynamically -->
+                    </div>
+
+                    <!-- Selected Day Events -->
+                    <div class="samsung-events-section" id="samsungEventsSection">
+                        <div class="samsung-events-header">
+                            <div class="samsung-events-date" id="samsungEventsDate">Aucun jour sélectionné</div>
+                        </div>
+                        <div class="samsung-events-list" id="samsungEventsList">
+                            <div style="text-align: center; color: #888; padding: 20px;">
+                                Sélectionnez un jour pour voir les événements
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -446,15 +478,9 @@
             </svg>
         </button>
 
-        <button class="floating-calendrier-btn" onclick="openApp('calendrier')" title="Calendrier" style="display: none;">
+        <button class="floating-calendrier-btn" onclick="openApp('calendrier')" title="Calendrier">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
                 <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-            </svg>
-        </button>
-
-        <button class="floating-sommaire-btn" onclick="openApp('sommaire')" title="Sommaire" style="display: none;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                <path d="M3 9h14V7H3v2zm0 4h14v-2H3v2zm0 4h14v-2H3v2zm16 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z"/>
             </svg>
         </button>
 

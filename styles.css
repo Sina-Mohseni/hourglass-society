@@ -16,6 +16,9 @@
 /* Applications - All App-Specific Styles */
 @import url('css/apps.css');
 
+/* Samsung Calendar - Calendar Interface */
+@import url('css/samsung-calendar.css');
+
 /* Responsive - Media Queries for Different Devices */
 @import url('css/responsive.css');
 
