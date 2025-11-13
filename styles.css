@@ -7,6 +7,9 @@
 /* Layout - Smartphone Frame, Status Bar, Structure */
 @import url('css/layout.css');
 
+/* Portal - Planets Selection Page */
+@import url('css/portal.css');
+
 /* Components - Buttons, Cards, Inputs, Modals */
 @import url('css/components.css');
 

@@ -17,26 +17,65 @@ let eras = [];
 let itemlineData = [];
 let crosslineData = [];
 let timelineData = [];
+let worlds = [];
 let prologueData = null;
 let currentQuestion = 0;
 let selectedAnswers = [];
 let lockedWallpaper = false;
 let lockedWallpaperUrl = null;
+let isInPortal = true;
 
 // DOM Elements
 const audio = document.getElementById('globalAudio');
 const backgroundVideo = document.getElementById('backgroundVideo');
 
-// Initialize App
-window.addEventListener('DOMContentLoaded', () => {
-    // initializeTime(); // Removed - no longer displaying time/date in header
-    checkLockedWallpaper(); // Check if wallpaper is locked
-    loadData(); // Load data directly, skip prologue
-    initializeMusicPlayer();
-    initializeTextColorPicker();
-    initializeSettingsSeekBar();
-    initializeSettingsVolumeBar();
-    initializeEra(); // Initialize era state
+// ===== PORTAL SYSTEM =====
+
+async function loadWorlds() {
+    try {
+        const response = await fetch('data/worlds.json');
+        worlds = await response.json();
+        renderPortalPlanets();
+    } catch (error) {
+        console.error('Error loading worlds:', error);
+    }
+}
+
+function renderPortalPlanets() {
+    const container = document.getElementById('planetsContainer');
+    if (!container) return;
+
+    container.innerHTML = worlds.map(world => `
+        <div class="planet-item" onclick="${world.isActive ? `enterWorld('${world.id}')` : ''}" style="${world.locked ? 'opacity: 0.5; cursor: not-allowed;' : ''}">
+            <div class="planet ${world.planetClass}"></div>
+            <div class="planet-info">
+                <div class="planet-name">${world.name}</div>
+                <div class="planet-description">${world.description}</div>
+                ${world.locked ? '<div style="color: #f5576c; font-size: 10px; margin-top: 5px;">🔒 VERROUILLÉ</div>' : ''}
+            </div>
+        </div>
+    `).join('');
+}
+
+function enterWorld(worldId) {
+    const world = worlds.find(w => w.id === worldId);
+    if (!world || world.locked) {
+        console.log('World locked or not found');
+        return;
+    }
+
+    // Hide portal
+    isInPortal = false;
+    const portalPage = document.getElementById('portalPage');
+    const smartphoneFrame = document.querySelector('.smartphone-frame');
+
+    portalPage.style.display = 'none';
+    smartphoneFrame.classList.remove('portal-active');
+
+    // Load the main app data and initialize
+    checkLockedWallpaper();
+    loadData();
+    initializeEra();
 
     // Render settings components after data is loaded
     setTimeout(() => {
@@ -44,6 +83,43 @@ window.addEventListener('DOMContentLoaded', () => {
         renderPlaylistSettings();
         updateSettingsMusicInfo();
     }, 500);
+}
+
+function showPortal() {
+    isInPortal = true;
+    const portalPage = document.getElementById('portalPage');
+    const smartphoneFrame = document.querySelector('.smartphone-frame');
+
+    portalPage.style.display = 'flex';
+    smartphoneFrame.classList.add('portal-active');
+
+    // Load worlds if not loaded
+    if (!worlds.length) {
+        loadWorlds();
+    }
+}
+
+function hidePortal() {
+    isInPortal = false;
+    const portalPage = document.getElementById('portalPage');
+    const smartphoneFrame = document.querySelector('.smartphone-frame');
+
+    if (portalPage) portalPage.style.display = 'none';
+    if (smartphoneFrame) smartphoneFrame.classList.remove('portal-active');
+}
+
+// Initialize App
+window.addEventListener('DOMContentLoaded', () => {
+    // Show portal at startup
+    showPortal();
+
+    // Initialize other components (but don't load data yet)
+    initializeMusicPlayer();
+    initializeTextColorPicker();
+    initializeSettingsSeekBar();
+    initializeSettingsVolumeBar();
+
+    // Note: loadData() will be called when entering a world via enterWorld()
 });
 function initializeTime() {
     const daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];

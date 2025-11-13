@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ea-mobile",
+    "name": "EA Mobile",
+    "description": "Le monde principal de Hourglass Project",
+    "planetClass": "planet-1",
+    "color": "#667eea",
+    "isActive": true,
+    "locked": false
+  },
+  {
+    "id": "world-2",
+    "name": "Nexus Prime",
+    "description": "Le cœur du réseau interdimensionnel",
+    "planetClass": "planet-2",
+    "color": "#f093fb",
+    "isActive": false,
+    "locked": true
+  },
+  {
+    "id": "world-3",
+    "name": "Chronos",
+    "description": "Le gardien du temps et des ères",
+    "planetClass": "planet-3",
+    "color": "#4facfe",
+    "isActive": false,
+    "locked": true
+  },
+  {
+    "id": "world-4",
+    "name": "Sanctuaire",
+    "description": "Le refuge des gardiens",
+    "planetClass": "planet-4",
+    "color": "#43e97b",
+    "isActive": false,
+    "locked": true
+  },
+  {
+    "id": "world-5",
+    "name": "Omega Point",
+    "description": "Le dernier bastion",
+    "planetClass": "planet-5",
+    "color": "#fa709a",
+    "isActive": false,
+    "locked": true
+  }
+]
