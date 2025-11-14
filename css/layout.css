@@ -176,68 +176,12 @@
 }
 
 /* Floating Buttons */
-.floating-itemline-btn,
-.floating-crossline-btn,
-.floating-timeline-btn {
-    position: absolute;
-    bottom: 85px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    transition: all 0.3s;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-}
-
-.floating-itemline-btn {
-    left: 20px;
-}
-
-.floating-crossline-btn {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.floating-timeline-btn {
-    right: 20px;
-}
-
-.floating-itemline-btn:hover,
-.floating-crossline-btn:hover,
-.floating-timeline-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.7);
-}
-
-.floating-crossline-btn:hover {
-    transform: translateX(-50%) scale(1.1);
-}
-
-/* Active state for bottom floating buttons */
-.floating-itemline-btn.active,
-.floating-crossline-btn.active,
-.floating-timeline-btn.active {
-    box-shadow: 0 0 20px rgba(102, 126, 234, 1),
-                0 0 40px rgba(102, 126, 234, 0.8),
-                0 10px 30px rgba(102, 126, 234, 0.5);
-    transform: scale(1.15);
-}
-
-.floating-crossline-btn.active {
-    transform: translateX(-50%) scale(1.15);
-}
-
-/* Top Floating Buttons (Home, Chronologie, Calendrier, Sommaire & Settings) */
+/* Top Floating Buttons (Home, Chronologie, Calendrier, Sagas, Elements & Settings) */
 .floating-home-btn,
 .floating-chronologie-btn,
 .floating-calendrier-btn,
-.floating-sommaire-btn,
+.floating-sagas-btn,
+.floating-elements-btn,
 .floating-settings-btn {
     position: absolute;
     top: 15px;
@@ -262,8 +206,15 @@
     left: 70px;
 }
 
-.floating-calendrier-btn,
-.floating-sommaire-btn {
+.floating-calendrier-btn {
+    right: 170px;
+}
+
+.floating-sagas-btn {
+    right: 120px;
+}
+
+.floating-elements-btn {
     right: 70px;
 }
 
@@ -274,7 +225,8 @@
 .floating-home-btn:hover,
 .floating-chronologie-btn:hover,
 .floating-calendrier-btn:hover,
-.floating-sommaire-btn:hover,
+.floating-sagas-btn:hover,
+.floating-elements-btn:hover,
 .floating-settings-btn:hover {
     opacity: 1;
     transform: scale(1.1);
@@ -283,7 +235,8 @@
 .floating-home-btn svg,
 .floating-chronologie-btn svg,
 .floating-calendrier-btn svg,
-.floating-sommaire-btn svg,
+.floating-sagas-btn svg,
+.floating-elements-btn svg,
 .floating-settings-btn svg {
     width: 24px;
     height: 24px;
@@ -299,7 +252,8 @@
 .floating-home-btn.active svg,
 .floating-chronologie-btn.active svg,
 .floating-calendrier-btn.active svg,
-.floating-sommaire-btn.active svg,
+.floating-sagas-btn.active svg,
+.floating-elements-btn.active svg,
 .floating-settings-btn.active svg {
     opacity: 1;
     filter: drop-shadow(0 0 12px rgba(102, 126, 234, 1))
@@ -310,7 +264,8 @@
 .floating-home-btn.active svg path,
 .floating-chronologie-btn.active svg path,
 .floating-calendrier-btn.active svg path,
-.floating-sommaire-btn.active svg path,
+.floating-sagas-btn.active svg path,
+.floating-elements-btn.active svg path,
 .floating-settings-btn.active svg path {
     fill: #667eea;
 }

@@ -257,11 +257,9 @@
 .portal-active .bottom-nav,
 .portal-active .floating-home-btn,
 .portal-active .floating-chronologie-btn,
-.portal-active .floating-parametres-btn,
 .portal-active .floating-calendrier-btn,
-.portal-active .floating-sommaire-btn,
-.portal-active .floating-itemline-btn,
-.portal-active .floating-crossline-btn,
-.portal-active .floating-timeline-btn {
+.portal-active .floating-sagas-btn,
+.portal-active .floating-elements-btn,
+.portal-active .floating-settings-btn {
     display: none !important;
 }
