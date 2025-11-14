@@ -2404,41 +2404,24 @@ function selectSaga(sagaId) {
 }
 
 function updateHeaderButtons() {
-    // Header buttons
-    const calendrierBtn = document.querySelector('.floating-calendrier-btn');
-    const sagasBtn = document.querySelector('.floating-sagas-btn');
-    const elementsBtn = document.querySelector('.floating-elements-btn');
-
-    // Footer buttons
+    // Footer buttons (conditional display)
     const itemlineIcon = document.querySelector('.itemline-icon');
     const crosslineIcon = document.querySelector('.crossline-icon');
     const timelineIcon = document.querySelector('.timeline-icon');
 
     if (activeItemType === 'element' || activeItemType === 'saga') {
-        // Always show calendrier for both element and saga
-        if (calendrierBtn) calendrierBtn.style.display = 'flex';
-
-        // Show sagas and elements buttons in header
-        if (sagasBtn) sagasBtn.style.display = 'flex';
-        if (elementsBtn) elementsBtn.style.display = 'flex';
-
         // Show the 3 buttons in footer for element or saga
         if (itemlineIcon) itemlineIcon.style.display = 'flex';
         if (crosslineIcon) crosslineIcon.style.display = 'flex';
         if (timelineIcon) timelineIcon.style.display = 'flex';
     } else {
-        // Keep calendrier visible even when no item is active
-        if (calendrierBtn) calendrierBtn.style.display = 'flex';
-
-        // Hide sagas and elements buttons when no item is active
-        if (sagasBtn) sagasBtn.style.display = 'none';
-        if (elementsBtn) elementsBtn.style.display = 'none';
-
         // Hide the 3 buttons in footer when no item is active
         if (itemlineIcon) itemlineIcon.style.display = 'none';
         if (crosslineIcon) crosslineIcon.style.display = 'none';
         if (timelineIcon) timelineIcon.style.display = 'none';
     }
+
+    // Note: Calendrier, Sagas, and Elements buttons are always visible (no display management needed)
 }
 
 function loadSagaSommaire(sagaId) {
