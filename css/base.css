@@ -43,8 +43,9 @@ body {
     height: 100vh;
     object-fit: cover;
     z-index: -3;
-    opacity: 0.85;
-    filter: brightness(0.9) contrast(1.1);
+    opacity: 1;
+    filter: brightness(0.8) contrast(1.15) saturate(1.1);
+    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&q=80') center/cover no-repeat;
 }
 
 body::before {
@@ -55,12 +56,12 @@ body::before {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(circle at 15% 25%, rgba(102, 126, 234, 0.3) 0%, transparent 40%),
-        radial-gradient(circle at 85% 75%, rgba(240, 147, 251, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 15% 25%, rgba(102, 126, 234, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(240, 147, 251, 0.35) 0%, transparent 45%),
         linear-gradient(180deg,
-            rgba(0, 0, 0, 0.7) 0%,
-            rgba(0, 0, 0, 0.65) 50%,
-            rgba(0, 0, 0, 0.7) 100%);
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0.65) 100%);
     z-index: -2;
 }
 
