@@ -91,34 +91,37 @@
 }
 
 .persona-card {
-    background: var(--card-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 2px solid var(--card-border);
     border-radius: 20px;
     padding: 30px;
     text-align: center;
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .persona-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient-purple);
-    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
     transition: all 0.5s ease;
     z-index: 0;
 }
 
 .persona-card:hover::before {
-    left: 0;
-    opacity: 0.15;
+    background: linear-gradient(to top, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.5) 50%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .persona-card:hover {
@@ -128,21 +131,11 @@
 }
 
 .persona-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    overflow: hidden;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 0 25px rgba(102, 126, 234, 0.5);
-    position: relative;
-    z-index: 1;
+    display: none;
 }
 
 .persona-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: none;
 }
 
 .persona-name {
@@ -219,11 +212,7 @@
 
     .persona-card {
         padding: 25px;
-    }
-
-    .persona-avatar {
-        width: 100px;
-        height: 100px;
+        min-height: 350px;
     }
 
     .persona-name {
