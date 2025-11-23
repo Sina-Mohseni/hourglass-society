@@ -1,0 +1,242 @@
+/* ==========================
+   PERSONAS PAGE STYLES
+   ========================== */
+
+.personas-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Author Profile */
+.author-profile {
+    margin-bottom: 60px;
+}
+
+.author-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 25px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.author-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-purple);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.author-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.author-name {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.author-role {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.author-bio {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Personas Grid */
+.personas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.persona-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.persona-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-purple);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.persona-card:hover::before {
+    left: 0;
+    opacity: 0.15;
+}
+
+.persona-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.5);
+}
+
+.persona-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 25px rgba(102, 126, 234, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.persona-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.persona-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+.persona-skill {
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.persona-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+.persona-gender {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 15px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Personas */
+@media (max-width: 968px) {
+    .author-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+
+    .author-avatar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .author-name {
+        font-size: 2rem;
+    }
+
+    .author-role {
+        font-size: 1.1rem;
+    }
+
+    .author-bio {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .personas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .persona-card {
+        padding: 25px;
+    }
+
+    .persona-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .persona-name {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .personas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .author-card {
+        padding: 30px 20px;
+    }
+}

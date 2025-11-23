@@ -1,0 +1,470 @@
+/* ==========================
+   PROJETS PAGE STYLES
+   ========================== */
+
+/* Mondes Grid with Rotating Planets */
+.mondes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 20px;
+}
+
+.monde-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.monde-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-purple);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.monde-card:hover::before {
+    opacity: 0.15;
+}
+
+.monde-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 25px 70px rgba(102, 126, 234, 0.6);
+}
+
+.monde-planet {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.planet {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    animation: rotatePlanet 20s linear infinite;
+    box-shadow:
+        0 0 40px rgba(102, 126, 234, 0.6),
+        inset 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.planet.earth {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+}
+
+.planet.mars {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 50%, #ff6b6b 100%);
+}
+
+.planet.jupiter {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ff9a56 100%);
+}
+
+.planet.saturn {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffafbd 100%);
+}
+
+.planet.neptune {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4facfe 100%);
+}
+
+/* Planet Ring Effect */
+.planet::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 30%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rotatePlanet 15s linear infinite reverse;
+}
+
+/* Planet Spots/Details */
+.planet::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow:
+        60px 30px 0 10px rgba(255, 255, 255, 0.15),
+        -10px 50px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.monde-name {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+.monde-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+}
+
+/* Epoques Grid */
+.epoques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.epoque-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.epoque-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.5);
+}
+
+.epoque-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
+}
+
+.epoque-name {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.epoque-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Sagas Grid */
+.sagas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.saga-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.saga-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.5);
+}
+
+.saga-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.6));
+}
+
+.saga-name {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.saga-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Projets Cards */
+.projets-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.projet-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.projet-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.5);
+}
+
+.projet-card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.6));
+}
+
+.projet-card-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.projet-card-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Projet Detail */
+.projet-detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.projet-detail-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.projet-detail-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Choix Section */
+.choix-section {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.choix-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.choix-group {
+    margin-bottom: 30px;
+}
+
+.choix-group:last-child {
+    margin-bottom: 0;
+}
+
+.choix-label {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.choix-options {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.choix-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px 25px;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 15px;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.choix-btn:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.choix-btn.active {
+    background: var(--gradient-purple);
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Sections Buttons */
+.sections-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.section-btn {
+    padding: 25px 20px;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-btn-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.6));
+}
+
+.section-btn:hover {
+    background: var(--gradient-purple);
+    border-color: transparent;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+}
+
+/* Section Content Display */
+.section-content {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 30px;
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+.section-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.section-content h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Responsive Projets */
+@media (max-width: 768px) {
+    .mondes-grid, .epoques-grid, .sagas-grid, .projets-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .monde-planet {
+        width: 140px;
+        height: 140px;
+    }
+
+    .choix-options {
+        flex-direction: column;
+    }
+
+    .choix-btn {
+        min-width: 100%;
+    }
+
+    .sections-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .sections-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .projet-detail-title {
+        font-size: 2rem;
+    }
+
+    .choix-section {
+        padding: 25px 20px;
+    }
+}

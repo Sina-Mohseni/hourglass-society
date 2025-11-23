@@ -1,0 +1,122 @@
+{
+  "epoques": {
+    "terre-prime": [
+      {
+        "id": "prehistoire",
+        "name": "Préhistoire",
+        "icon": "🦴",
+        "description": "L'âge de pierre, des premiers hommes et des grands mammifères. Survie, chasse et découverte du feu."
+      },
+      {
+        "id": "antiquite",
+        "name": "Antiquité",
+        "icon": "🏛️",
+        "description": "Empires anciens, philosophie grecque, légions romaines. L'âge des grandes civilisations."
+      },
+      {
+        "id": "moyen-age",
+        "name": "Moyen Âge",
+        "icon": "⚔️",
+        "description": "Chevaliers, châteaux forts et croisades. L'ère de la féodalité et des légendes arthuriennes."
+      },
+      {
+        "id": "renaissance",
+        "name": "Renaissance",
+        "icon": "🎨",
+        "description": "Âge d'or de l'art, de la science et de l'exploration. Leonardo, Michel-Ange et les grandes découvertes."
+      },
+      {
+        "id": "ere-industrielle",
+        "name": "Ère Industrielle",
+        "icon": "⚙️",
+        "description": "Révolution des machines, usines et chemins de fer. Le monde se transforme rapidement."
+      },
+      {
+        "id": "ere-moderne",
+        "name": "Ère Moderne",
+        "icon": "🌐",
+        "description": "Technologie numérique, internet et mondialisation. Notre époque contemporaine."
+      }
+    ],
+    "nova-arcadia": [
+      {
+        "id": "fondation",
+        "name": "Fondation",
+        "icon": "🏗️",
+        "description": "Construction des premières cités flottantes et terraformation initiale."
+      },
+      {
+        "id": "age-cyber",
+        "name": "Âge Cyber",
+        "icon": "🤖",
+        "description": "Fusion homme-machine, intelligences artificielles et réalités virtuelles."
+      },
+      {
+        "id": "ere-bio",
+        "name": "Ère Bio-Tech",
+        "icon": "🧬",
+        "description": "Biotechnologies avancées et symbiose avec la nature artificielle."
+      }
+    ],
+    "eldoria": [
+      {
+        "id": "ere-dragons",
+        "name": "Ère des Dragons",
+        "icon": "🐉",
+        "description": "Quand les dragons régnaient sur le monde et enseignaient la magie aux mortels."
+      },
+      {
+        "id": "age-sorciers",
+        "name": "Âge des Sorciers",
+        "icon": "🔮",
+        "description": "Apogée de la magie, académies mystiques et guerre des arcanes."
+      },
+      {
+        "id": "temps-heros",
+        "name": "Temps des Héros",
+        "icon": "⚡",
+        "description": "Époque actuelle où héros et aventuriers façonnent le destin d'Eldoria."
+      }
+    ],
+    "crimson-wastes": [
+      {
+        "id": "ancien-empire",
+        "name": "Ancien Empire",
+        "icon": "👑",
+        "description": "Civilisation prospère avant la grande catastrophe qui créa les déserts."
+      },
+      {
+        "id": "apocalypse",
+        "name": "Apocalypse Rouge",
+        "icon": "💥",
+        "description": "Cataclysme qui transforma le monde en désert cramoisi."
+      },
+      {
+        "id": "nouvelle-ere",
+        "name": "Nouvelle Ère",
+        "icon": "🌅",
+        "description": "Reconstruction et adaptation à la nouvelle réalité hostile."
+      }
+    ],
+    "aether-realm": [
+      {
+        "id": "creation",
+        "name": "Création",
+        "icon": "✨",
+        "description": "Naissance du royaume éthéré et formation des premières îles flottantes."
+      },
+      {
+        "id": "equilibre",
+        "name": "Équilibre Cosmique",
+        "icon": "☯️",
+        "description": "Harmonie parfaite entre les énergies cosmiques et les habitants."
+      },
+      {
+        "id": "convergence",
+        "name": "Convergence",
+        "icon": "🌟",
+        "description": "Époque où les mondes se rencontrent et les dimensions se croisent."
+      }
+    ]
+  }
+}

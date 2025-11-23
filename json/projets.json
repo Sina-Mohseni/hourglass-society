@@ -1,0 +1,114 @@
+{
+  "projets": {
+    "chasseurs-mammouths": [
+      {
+        "id": "chasse-initiatique",
+        "name": "La Chasse Initiatique",
+        "icon": "🏹",
+        "description": "Participez à votre première grande chasse au mammouth pour prouver votre valeur à la tribu.",
+        "longDescription": "Dans cette aventure immersive, vous incarnez un jeune membre de la tribu devant faire ses preuves lors de la grande chasse saisonnière. Travaillez en équipe pour traquer, piéger et abattre le mammouth, tout en gérant les dangers de la nature hostile.",
+        "fiche": {
+          "duree": "3-4 heures",
+          "joueurs": "4-8",
+          "materiel": "Cartes de terrain, jetons ressources, outils préhistoriques en carton"
+        },
+        "scenario": "L'hiver approche et la tribu a besoin de provisions. Le chaman a identifié un troupeau de mammouths dans la vallée. Votre groupe de jeunes chasseurs doit prouver sa valeur en ramenant de la viande, des peaux et de l'ivoire. Mais attention aux prédateurs et aux dangers naturels...",
+        "intro": "video-chasse-mammouth.mp4",
+        "miseEnPlace": [
+          "Disposer les cartes de terrain pour créer la vallée",
+          "Placer les pions mammouths et prédateurs",
+          "Distribuer les outils de chasse à chaque joueur",
+          "Préparer les jetons ressources et danger"
+        ],
+        "regles": [
+          "Chaque joueur choisit un rôle : Traqueur, Lancier, Piégeur ou Récolteur",
+          "Le mammouth se déplace selon les cartes événement",
+          "Les joueurs doivent coordonner leurs actions pour réussir",
+          "Attention : si un joueur tombe à 0 PV, il est blessé et ralentit l'équipe"
+        ]
+      },
+      {
+        "id": "grotte-sacree",
+        "name": "La Grotte Sacrée",
+        "icon": "🕯️",
+        "description": "Découvrez les secrets des peintures rupestres dans une grotte mystérieuse.",
+        "longDescription": "Une expédition chamanique dans les profondeurs de la terre pour découvrir les enseignements des ancêtres à travers leurs peintures et symboles sacrés.",
+        "fiche": {
+          "duree": "2-3 heures",
+          "joueurs": "3-6",
+          "materiel": "Cartes énigmes, lampes LED, peintures murales imprimées"
+        },
+        "scenario": "Le chaman de la tribu vous envoie dans la Grotte Sacrée pour déchiffrer les messages des ancêtres. Chaque peinture cache un enseignement vital pour la survie de la tribu.",
+        "intro": "video-grotte-sacree.mp4",
+        "miseEnPlace": [
+          "Créer l'ambiance avec un éclairage tamisé",
+          "Afficher les peintures rupestres sur les murs",
+          "Préparer les énigmes et indices cachés",
+          "Disposer les totems et objets rituels"
+        ],
+        "regles": [
+          "Résolvez les énigmes pour progresser plus profond dans la grotte",
+          "Certaines peintures nécessitent une lampe spéciale pour être révélées",
+          "Le temps est limité : la grotte se ferme au coucher du soleil",
+          "Travail d'équipe essentiel : certaines énigmes nécessitent plusieurs joueurs"
+        ]
+      }
+    ],
+    "gladiateurs-rome": [
+      {
+        "id": "arene-colisee",
+        "name": "L'Arène du Colisée",
+        "icon": "⚔️",
+        "description": "Combattez pour votre liberté dans les arènes légendaires de Rome.",
+        "longDescription": "Incarnez un gladiateur dans la Rome antique. Chaque combat vous rapproche de votre liberté, mais la mort rôde à chaque instant.",
+        "fiche": {
+          "duree": "2-4 heures",
+          "joueurs": "4-10",
+          "materiel": "Armes en mousse, armures en carton, cartes combat, dés"
+        },
+        "scenario": "Vous êtes des gladiateurs dans la Rome antique. Pour gagner votre liberté, vous devez remporter 5 combats dans l'arène. Mais attention, chaque victoire attire des adversaires plus puissants...",
+        "intro": "video-colisee.mp4",
+        "miseEnPlace": [
+          "Délimiter l'arène de combat",
+          "Distribuer les armes et armures",
+          "Créer les profils de gladiateurs",
+          "Préparer le tableau des victoires"
+        ],
+        "regles": [
+          "Combats en équipe ou en solo selon le mode choisi",
+          "Système de points de vie et d'endurance",
+          "Le public peut influencer l'issue du combat (vote des spectateurs)",
+          "Victoires = argent pour améliorer équipement"
+        ]
+      }
+    ],
+    "chevaliers-table-ronde": [
+      {
+        "id": "quete-graal",
+        "name": "La Quête du Graal",
+        "icon": "🏆",
+        "description": "Partez à la recherche du Saint Graal à travers dangers et épreuves.",
+        "longDescription": "Une quête épique inspirée des légendes arthuriennes. Affrontez dragons, sorciers maléfiques et énigmes mystiques pour trouver le Graal.",
+        "fiche": {
+          "duree": "4-6 heures",
+          "joueurs": "4-8",
+          "materiel": "Épées en mousse, boucliers, cartes quête, décors médiévaux"
+        },
+        "scenario": "Le roi Arthur vous confie la plus noble des quêtes : retrouver le Saint Graal pour sauver Camelot d'une malédiction. Votre voyage vous mènera à travers forêts enchantées, châteaux maudits et terres désolées.",
+        "intro": "video-quete-graal.mp4",
+        "miseEnPlace": [
+          "Créer les différentes zones (forêt, château, désert)",
+          "Placer les PNJ et ennemis",
+          "Distribuer les profils de chevaliers",
+          "Préparer les énigmes et combats"
+        ],
+        "regles": [
+          "Chaque chevalier a des vertus (Courage, Sagesse, Foi, Loyauté)",
+          "Les épreuves testent ces vertus",
+          "Combats tactiques au tour par tour",
+          "Choix moraux influençant la fin de l'aventure"
+        ]
+      }
+    ]
+  }
+}

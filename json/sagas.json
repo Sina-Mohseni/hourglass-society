@@ -1,0 +1,184 @@
+{
+  "sagas": {
+    "prehistoire": [
+      {
+        "id": "chasseurs-mammouths",
+        "name": "Les Chasseurs de Mammouths",
+        "icon": "🦣",
+        "description": "Saga épique suivant une tribu préhistorique dans sa lutte pour la survie."
+      },
+      {
+        "id": "premiers-pas",
+        "name": "Les Premiers Pas",
+        "icon": "👣",
+        "description": "L'évolution de l'humanité, de la découverte du feu à la création de l'art."
+      }
+    ],
+    "antiquite": [
+      {
+        "id": "gladiateurs-rome",
+        "name": "Gladiateurs de Rome",
+        "icon": "🗡️",
+        "description": "Combats dans le Colisée et intrigues politiques de la Rome antique."
+      },
+      {
+        "id": "mysteres-egypte",
+        "name": "Mystères d'Égypte",
+        "icon": "🔺",
+        "description": "Exploration des pyramides et secrets des pharaons."
+      }
+    ],
+    "moyen-age": [
+      {
+        "id": "chevaliers-table-ronde",
+        "name": "Chevaliers de la Table Ronde",
+        "icon": "🛡️",
+        "description": "Quête du Graal et légendes arthuriennes."
+      },
+      {
+        "id": "croisades",
+        "name": "Les Croisades",
+        "icon": "⚜️",
+        "description": "Expéditions en Terre Sainte et choc des civilisations."
+      }
+    ],
+    "renaissance": [
+      {
+        "id": "conspiration-medicis",
+        "name": "Conspiration Médicis",
+        "icon": "🎭",
+        "description": "Intrigues politiques dans la Florence de la Renaissance."
+      },
+      {
+        "id": "nouveaux-mondes",
+        "name": "Nouveaux Mondes",
+        "icon": "🧭",
+        "description": "Grandes découvertes et exploration des Amériques."
+      }
+    ],
+    "ere-industrielle": [
+      {
+        "id": "revolution-vapeur",
+        "name": "Révolution de la Vapeur",
+        "icon": "🚂",
+        "description": "Transformation industrielle et naissance du monde moderne."
+      },
+      {
+        "id": "detectives-victoriens",
+        "name": "Détectives Victoriens",
+        "icon": "🔍",
+        "description": "Enquêtes criminelles dans le Londres victorien."
+      }
+    ],
+    "ere-moderne": [
+      {
+        "id": "cyber-revolution",
+        "name": "Cyber Révolution",
+        "icon": "💻",
+        "description": "Hackers, IA et révolution numérique."
+      },
+      {
+        "id": "espace-final",
+        "name": "Frontière Spatiale",
+        "icon": "🚀",
+        "description": "Premières colonies spatiales et exploration du système solaire."
+      }
+    ],
+    "fondation": [
+      {
+        "id": "premiers-colons",
+        "name": "Premiers Colons",
+        "icon": "🏙️",
+        "description": "Construction de Nova Arcadia et défis de la colonisation."
+      }
+    ],
+    "age-cyber": [
+      {
+        "id": "ghost-shell",
+        "name": "Ghost in the Shell",
+        "icon": "👾",
+        "description": "Conscience numérique et limites de l'humanité."
+      }
+    ],
+    "ere-bio": [
+      {
+        "id": "symbiose",
+        "name": "Symbiose Parfaite",
+        "icon": "🌿",
+        "description": "Fusion harmonieuse entre technologie et nature."
+      }
+    ],
+    "ere-dragons": [
+      {
+        "id": "pacte-ancestral",
+        "name": "Le Pacte Ancestral",
+        "icon": "📜",
+        "description": "Alliance entre dragons et mortels."
+      }
+    ],
+    "age-sorciers": [
+      {
+        "id": "academie-arcane",
+        "name": "Académie Arcane",
+        "icon": "📚",
+        "description": "Formation des plus grands mages d'Eldoria."
+      }
+    ],
+    "temps-heros": [
+      {
+        "id": "quete-lumiere",
+        "name": "Quête de la Lumière",
+        "icon": "💎",
+        "description": "Héros cherchant à restaurer la paix en Eldoria."
+      }
+    ],
+    "ancien-empire": [
+      {
+        "id": "splendeur-perdue",
+        "name": "Splendeur Perdue",
+        "icon": "🏺",
+        "description": "Gloire de l'empire avant sa chute."
+      }
+    ],
+    "apocalypse": [
+      {
+        "id": "jour-rouge",
+        "name": "Le Jour Rouge",
+        "icon": "☄️",
+        "description": "Le cataclysme qui changea le monde à jamais."
+      }
+    ],
+    "nouvelle-ere": [
+      {
+        "id": "caravanes-sable",
+        "name": "Caravanes du Sable",
+        "icon": "🐪",
+        "description": "Commerce et survie dans les déserts infinis."
+      }
+    ],
+    "creation": [
+      {
+        "id": "genese-aether",
+        "name": "Genèse d'Aether",
+        "icon": "🌌",
+        "description": "Naissance du royaume éthéré."
+      }
+    ],
+    "equilibre": [
+      {
+        "id": "gardiens-cosmos",
+        "name": "Gardiens du Cosmos",
+        "icon": "⭐",
+        "description": "Protecteurs de l'équilibre cosmique."
+      }
+    ],
+    "convergence": [
+      {
+        "id": "portes-mondes",
+        "name": "Portes entre les Mondes",
+        "icon": "🚪",
+        "description": "Voyages interdimensionnels et rencontres impossibles."
+      }
+    ]
+  }
+}

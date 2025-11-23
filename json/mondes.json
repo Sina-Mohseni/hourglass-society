@@ -1,0 +1,39 @@
+{
+  "mondes": [
+    {
+      "id": "terre-prime",
+      "name": "Terre Prime",
+      "description": "Le monde principal où l'histoire de l'humanité s'est déroulée. Un univers familier mais rempli de secrets cachés.",
+      "planetType": "earth",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
+    },
+    {
+      "id": "nova-arcadia",
+      "name": "Nova Arcadia",
+      "description": "Un monde futuriste où la technologie et la nature coexistent en harmonie parfaite. Cités flottantes et forêts bioluminescentes.",
+      "planetType": "neptune",
+      "image": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=600&fit=crop"
+    },
+    {
+      "id": "eldoria",
+      "name": "Eldoria",
+      "description": "Royaume de magie et de légendes anciennes. Dragons, sorciers et créatures mythiques peuplent ce monde fantastique.",
+      "planetType": "jupiter",
+      "image": "https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?w=800&h=600&fit=crop"
+    },
+    {
+      "id": "crimson-wastes",
+      "name": "Crimson Wastes",
+      "description": "Déserts rouges sans fin et canyons mystérieux. Un monde aride où seuls les plus forts survivent.",
+      "planetType": "mars",
+      "image": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&h=600&fit=crop"
+    },
+    {
+      "id": "aether-realm",
+      "name": "Aether Realm",
+      "description": "Dimension éthérée où les lois physiques sont différentes. Îles flottantes et énergies cosmiques.",
+      "planetType": "saturn",
+      "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=600&fit=crop"
+    }
+  ]
+}

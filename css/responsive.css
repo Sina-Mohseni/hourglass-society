@@ -1,0 +1,206 @@
+/* ==========================
+   RESPONSIVE STYLES
+   All elements maintain same CSS across all media queries
+   ========================== */
+
+/* Tablet and Below (Portrait) */
+@media (max-width: 1024px) and (orientation: portrait) {
+    .main-content {
+        padding-top: 70px;
+    }
+
+    .page {
+        padding: 30px 15px;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 968px) and (orientation: landscape) {
+    .main-header {
+        height: 60px;
+    }
+
+    .main-content {
+        padding-top: 60px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .page {
+        padding: 20px 15px;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) and (orientation: portrait) {
+    body {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding-top: 70px;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) and (orientation: portrait) {
+    .page {
+        padding: 20px 10px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile Portrait */
+@media (max-width: 375px) and (orientation: portrait) {
+    .page-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Square Screens (1:1 aspect ratio) */
+@media (aspect-ratio: 1/1) {
+    .main-header {
+        height: 70px;
+    }
+
+    .main-content {
+        padding-top: 70px;
+    }
+
+    .page {
+        padding: 25px 15px;
+    }
+
+    .mondes-grid,
+    .epoques-grid,
+    .sagas-grid,
+    .projets-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 320px) {
+    .main-header {
+        padding: 0 10px;
+    }
+
+    .page {
+        padding: 15px 8px;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* Ensure all grids are responsive */
+@media (max-width: 768px) {
+    .mondes-grid,
+    .epoques-grid,
+    .sagas-grid,
+    .projets-cards,
+    .personas-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .quick-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .concept-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ensure chat is responsive */
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 15px;
+    }
+
+    .chat-messages {
+        max-height: calc(100vh - 200px);
+    }
+
+    .chat-input-container input {
+        font-size: 14px;
+    }
+}
+
+/* Height-specific adjustments */
+@media (max-height: 600px) {
+    .main-header {
+        height: 50px;
+    }
+
+    .main-content {
+        padding-top: 50px;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-section {
+        margin-bottom: 20px;
+    }
+
+    .stat-card,
+    .concept-card,
+    .persona-card {
+        padding: 20px;
+    }
+}
+
+/* Ensure buttons and interactive elements are touch-friendly on all devices */
+@media (hover: none) and (pointer: coarse) {
+    .nav-item,
+    .logo-container,
+    .back-button,
+    .choix-btn,
+    .section-btn,
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav-item:active,
+    .logo-container:active,
+    button:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Print styles */
+@media print {
+    .main-header {
+        position: static;
+    }
+
+    .main-content {
+        padding-top: 0;
+    }
+
+    .back-button {
+        display: none;
+    }
+}

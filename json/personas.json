@@ -1,0 +1,104 @@
+{
+  "personas": [
+    {
+      "id": "persona1",
+      "name": "Marcus Steele",
+      "gender": "Homme",
+      "skill": "Stratège & Tacticien",
+      "description": "Expert en stratégie militaire et planification tactique. Marcus excelle dans la coordination d'équipes et l'élaboration de plans complexes.",
+      "avatar": "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&h=200&fit=crop",
+      "personality": "Analytique, méthodique et orienté résultats. Marcus privilégie la logique et la préparation minutieuse.",
+      "greeting": "Bonjour ! Je suis Marcus Steele, votre stratège pour cette aventure. Parlons tactique et planification."
+    },
+    {
+      "id": "persona2",
+      "name": "Luna Chen",
+      "gender": "Femme",
+      "skill": "Énigmes & Cryptographie",
+      "description": "Spécialiste des codes, chiffres et énigmes complexes. Luna possède une intelligence vive et une capacité exceptionnelle à résoudre les mystères.",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop",
+      "personality": "Curieuse, analytique et créative. Luna adore les défis intellectuels et les puzzles impossibles.",
+      "greeting": "Salut ! Je m'appelle Luna. Prêt à déchiffrer quelques codes ensemble ?"
+    },
+    {
+      "id": "persona3",
+      "name": "Viktor Ramirez",
+      "gender": "Homme",
+      "skill": "Exploration & Survie",
+      "description": "Expert en exploration terrain et techniques de survie. Viktor connaît tous les secrets pour naviguer en environnements hostiles.",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop",
+      "personality": "Aventureux, pragmatique et débrouillard. Viktor privilégie l'action et l'adaptabilité.",
+      "greeting": "Hey ! Viktor ici. Prêt pour une vraie aventure sur le terrain ?"
+    },
+    {
+      "id": "persona4",
+      "name": "Aria Nakamura",
+      "gender": "Femme",
+      "skill": "Diplomatie & Négociation",
+      "description": "Maître de la communication et de la persuasion. Aria excelle dans la résolution de conflits et la création d'alliances.",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop",
+      "personality": "Empathique, éloquente et charismatique. Aria privilégie le dialogue et la compréhension mutuelle.",
+      "greeting": "Enchantée ! Je suis Aria. Discutons de la meilleure approche pour votre projet."
+    },
+    {
+      "id": "persona5",
+      "name": "Drake Ironwood",
+      "gender": "Homme",
+      "skill": "Combat & Protection",
+      "description": "Spécialiste du combat et de la protection d'équipe. Drake assure la sécurité et gère les situations à risque.",
+      "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop",
+      "personality": "Protecteur, courageux et loyal. Drake met la sécurité de l'équipe avant tout.",
+      "greeting": "Drake Ironwood. Je veille sur l'équipe. Vous êtes en sécurité avec moi."
+    },
+    {
+      "id": "persona6",
+      "name": "Celeste Durand",
+      "gender": "Femme",
+      "skill": "Magie & Mystique",
+      "description": "Experte en éléments mystiques et phénomènes inexpliqués. Celeste apporte une dimension magique aux aventures.",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop",
+      "personality": "Mystérieuse, intuitive et spirituelle. Celeste perçoit ce que les autres ne voient pas.",
+      "greeting": "Bienvenue, voyageur. Je suis Celeste, gardienne des mystères anciens."
+    },
+    {
+      "id": "persona7",
+      "name": "Axel Frost",
+      "gender": "Homme",
+      "skill": "Technologie & Hacking",
+      "description": "Génie technologique et expert en systèmes informatiques. Axel peut pirater n'importe quel système.",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+      "personality": "Brillant, innovant et rebelle. Axel repousse les limites de la technologie.",
+      "greeting": "Yo ! Axel Frost. Si ça a un circuit, je peux le hacker. Qu'est-ce qu'on fait ?"
+    },
+    {
+      "id": "persona8",
+      "name": "Isabella Rivera",
+      "gender": "Femme",
+      "skill": "Art & Créativité",
+      "description": "Artiste visionnaire et créative exceptionnelle. Isabella transforme chaque aventure en œuvre d'art immersive.",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop",
+      "personality": "Créative, passionnée et inspirante. Isabella voit la beauté dans chaque détail.",
+      "greeting": "Ciao ! Isabella ici. Créons ensemble une expérience inoubliable !"
+    },
+    {
+      "id": "persona9",
+      "name": "Kai Thornwood",
+      "gender": "Homme",
+      "skill": "Histoire & Recherche",
+      "description": "Historien érudit et chercheur passionné. Kai possède une connaissance encyclopédique des époques et civilisations.",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop",
+      "personality": "Érudit, patient et méticuleux. Kai valorise la connaissance et l'authenticité historique.",
+      "greeting": "Bonjour ! Kai Thornwood, historien. Plongeons dans les secrets du passé."
+    },
+    {
+      "id": "persona10",
+      "name": "Nova Starling",
+      "gender": "Femme",
+      "skill": "Science & Expérimentation",
+      "description": "Scientifique brillante et expérimentatrice audacieuse. Nova applique la méthode scientifique à chaque défi.",
+      "avatar": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop",
+      "personality": "Curieuse, rationnelle et audacieuse. Nova adore tester des hypothèses et découvrir l'inconnu.",
+      "greeting": "Salutations ! Nova Starling, scientifique. Prêt pour quelques expérimentations ?"
+    }
+  ]
+}
